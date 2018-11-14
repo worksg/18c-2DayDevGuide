@@ -24,3 +24,96 @@ SQL Developer 是一个可以连接Oracle数据库的客户端程序。
 如果你使用SQL Developer程序以账户HR来连接Oracle数据库，你可以查看HR数据对象和数据表EMPLOYEES的属性
 
 [Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)
+
+<!-- ## 2.1 Connecting to Oracle Database from SQL*Plus -->
+
+## 2.1 使用SQL\*Plus连接Oracle数据库
+
+<!-- SQL\*Plus is a client program from which you can access Oracle Database. This topic shows how to start SQL\*Plus and connect to Oracle Database. -->
+
+SQL\*Plus是一个可以用来连接Oracle数据库的客户端程序。这个主题展示了如何使用SQL\*Plus来连接Oracle数据库
+
+<!-- Note:
+For steps 3 and 4 of the following procedure, you need a user name and password. -->
+
+> 说明：
+> 
+> 对于以下过程的步骤3和4，你需要用户名和密码。
+
+<!-- To connect to Oracle Database from SQL\*Plus: -->
+
+从SQL\*Plus连接Oracle数据库
+
+<!-- 1. If you are on a Windows system, display a Windows command prompt. -->
+
+1. 如果您在Windows系统上，则显示Windows命令提示符。
+
+<!-- 2. At the command prompt, type sqlplus and then press the key Enter. -->
+
+2. 在命令提示符下，键入*sqlplus*，然后按**回车键**。
+
+<!-- 3. At the user name prompt, type your user name and then press the key Enter. -->
+
+3. 在用户名提示符下，键入用户名，然后按**回车键**。
+
+<!-- 4. At the password prompt, type your password and then press the key Enter. -->
+
+4. 在密码提示符下，键入密码，然后按**回车键**。
+
+> 说明：
+>
+> 为了安全考虑，你的密码不会显示在屏幕上
+
+<!-- The system connects you to an Oracle Database instance. -->
+
+该系统将您连接到一个Oracle数据库实例。
+
+<!-- You are in the SQL\*Plus environment. At the SQL> prompt, you can enter and run SQL*Plus commands, SQL statements, PL/SQL statements, and operating system commands. -->
+
+您在SQL\*Plus环境中。在SQL>提示符下，您可以输入和运行SQL\*Plus命令、SQL语句、PL/SQL语句和操作系统命令。
+
+<!-- To exit SQL\*Plus, type exit and press the key Enter. -->
+
+若要退出SQL\*Plus，请键入*exit*并按**回车键**。
+
+<!-- Note:
+Exiting SQL\*Plus ends the SQL\*Plus session, but does not shut down the Oracle Database instance. -->
+
+> 说明：
+> 
+> 退出SQL\*Plus会结束SQL\*Plus会话，但不会关闭Oracle数据库实例。
+
+<!-- Example 2-1 starts SQL\*Plus, connects to Oracle Database, runs a SQL SELECT statement, and exits SQL\*Plus. User input is bold. -->
+
+[Example 2-1](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGHFHIG) 运行SQL\*Plus，连接Oracle数据库，运行一个SQL SELECT语句，并退出SQL*Plus。用户输入是**粗体**的。
+
+> 译者注: code块内无法显示加粗效果，所以被两个星号夹住的字体标记为加粗的字体，即用户输入
+
+**Example 2-1 使用SQL\*Plus连接Oracle数据库**
+```bash
+> sqlplus
+SQL*Plus: Release 12.1.0.1.0 Production on Thu Dec 27 07:43:41 2012
+ 
+Copyright (c) 1982, 2012, Oracle.  All rights reserved.
+ 
+Enter user-name: **你的用户名**
+Enter password: **你的密码**
+ 
+Connected to:
+Oracle Database 12c Enterprise Edition Release - 12.1.0.1.0 64bit Production
+ 
+SQL> **select count(*) from employees;**
+ 
+  COUNT(*)
+----------
+       107
+ 
+SQL> **exit**
+ 
+Disconnected from Oracle Database 12c Enterprise Edition Release - 12.1.0.1.0 64bit Production
+> 
+```
+**See Also:**
+- "[Connecting to Oracle Database as User HR from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)"
+- "[About SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C5ABE48D-C8D7-4BB7-AD66-406719AF6BFD)" 有关SQL\*Plus的简单介绍
+- [SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG002) 有关启动SQL\*Plus和连接Oracle数据库的更多详细信息
