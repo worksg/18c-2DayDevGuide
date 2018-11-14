@@ -113,7 +113,7 @@ SQL> **exit**
 Disconnected from Oracle Database 12c Enterprise Edition Release - 12.1.0.1.0 64bit Production
 > 
 ```
-**See Also:**
+**也可以看看:**
 - "[Connecting to Oracle Database as User HR from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)"
 - "[About SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C5ABE48D-C8D7-4BB7-AD66-406719AF6BFD)" 有关SQL\*Plus的简单介绍
 - [SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG002) 有关启动SQL\*Plus和连接Oracle数据库的更多详细信息
