@@ -82,3 +82,56 @@ Unicode是一种字符编码系统，它定义了世界上大多数口语中的�
 
 **也可以看看:**
 - [Oracle Database Globalization Support Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=NLSPG146) 有关全球化支持特性的更多信息
+
+## 7.2 About Initial NLS Parameter Values
+Except in SQL Developer, the initial values of NLS parameters are set by database initialization parameters.
+
+The DBA can set the values of initialization parameters in the initialization parameter file, and they take effect the next time the database is started.
+
+In SQL Developer, the initial values of NLS parameters are as shown in [Table 7-1](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-7C40C91D-FEC9-4454-B385-B4344CA16FC3__CACBAIJA).
+
+***Table 7-1 Initial Values of NLS Parameters in SQL Developer***
+
+|Parameter|	Initial Value|
+|:--|:--|
+|**NLS_CALENDAR**|GREGORIAN|
+|**NLS_CHARACTERSET**|AL32UTF8|
+|**NLS_COMP**|BINARY|
+|**NLS_CURRENCY**|$|
+|**NLS_DATE_FORMAT**|DD-MON-RR|
+|**NLS_DATE_LANGUAGE**|AMERICAN|
+|**NLS_DUAL_CURRENCY**|$|
+|**NLS_ISO_CURRENCY**|AMERICA|
+|**NLS_LANGUAGE**|AMERICAN|
+|**NLS_LENGTH_SEMANTICS**|BYTE|
+|**NLS_NCHAR_CHARACTERSET**|AL16UTF16|
+|**NLS_NCHAR_CONV_EXCP**|FALSE|
+|**NLS_NUMERIC_CHARACTERS**|.,|
+|**NLS_SORT**|BINARY|
+|**NLS_TERRITORY**|AMERICA|
+|**NLS_TIMESTAMP_FORMAT**|DD-MON-RR HH.MI.SSXFF AM|
+|**NLS_TIMESTAMP_TZ_FORMAT**|DD-MON-RR HH.MI.SSXFF AM TZR|
+|**NLS_TIME_FORMAT**|HH.MI.SSXFF AM|
+|**NLS_TIME_TZ_FORMAT**|HH.MI.SSXFF AM TZR|
+
+**See Also:**
+
+[Oracle Database Administrator's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=ADMIN11099) for information about initialization parameters and initialization parameter files
+
+## 7.3 Viewing NLS Parameter Values
+To view the current values of NLS parameters, use the SQL Developer report National Language Support Parameters.
+
+**To view the National Language Support Parameters report:**
+
+1. From the SQL Developer menu View, select **Reports**.
+2. In the Reports pane, expand **Data Dictionary Reports**.
+3. In the list of reports, expand **About Your Database**.
+4. In the list of reports, select **National Language Support Parameters**.
+5. In the Select Connection window, select **hr_conn**.
+6. Click **OK**.
+
+    The Select Connection window closes and the National Language Support Parameters pane appears, showing the names of the NLS parameters and their current values.
+
+**See Also:**
+
+[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11000) for more information about SQL Developer reports
