@@ -117,3 +117,69 @@ Disconnected from Oracle Database 12c Enterprise Edition Release - 12.1.0.1.0 64
 - "[Connecting to Oracle Database as User HR from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)"
 - "[About SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C5ABE48D-C8D7-4BB7-AD66-406719AF6BFD)" 有关SQL\*Plus的简单介绍
 - [SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG002) 有关启动SQL\*Plus和连接Oracle数据库的更多详细信息
+
+
+## 2.2 Connecting to Oracle Database from SQL Developer
+SQL Developer is a client program with which you can access Oracle Database.
+
+You are encouraged to use the currently available release of SQL Developer, which you can download from:
+
+http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
+
+This section assumes that SQL Developer is installed on your system, and shows how to start it and connect to Oracle Database. If SQL Developer is not installed on your system, then see [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100) for installation instructions.
+
+> Note:
+> 
+> For the following procedure:
+> 
+> - If you're using a SQL Developer kit that does not include the JDK, then the first time you start SQL Developer on your system, you must provide the path to the Java Development Kit.
+> 
+> - When prompted, you need to enter a user name and password.
+
+**To connect to Oracle Database from SQL Developer:**
+
+1. Start SQL Developer.
+   
+    For instructions, see [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100).
+
+    If this is the first time you have started SQL Developer on your system, you are prompted to enter the path to the Java Development Kit (JDK) installation (for example, *C:\Program Files\Java\jdk1.8.0_65*). Either type the path after the prompt or browse to it, and then press the key **Enter**.
+
+2. In the Connections frame, click the icon **New Connection**.
+
+3. In the New/Select Database Connection window:
+
+    a. Type the appropriate values in the fields Connection Name, Username, and Password.
+
+    &emsp;For security, the password characters that you type appear as asterisks.
+
+    &emsp;Near the Password field is the check box Save Password. By default, it is deselected. Oracle recommends accepting the default.
+
+    b. If the Oracle pane is not showing, click the tab **Oracle**.
+
+    c. In the Oracle pane, accept the default values.
+
+    &emsp;(The default values are: Connection Type, Basic; Role, default, Hostname, localhost; Port, 1521; SID option, selected; SID field, xe.)
+
+    d. Click the button **Test**.
+
+    &emsp;The connection is tested. If the connection succeeds, the Status indicator changes from blank to Success.
+
+    e. If the test succeeded, click the button **Connect**.
+
+    &emsp;The New/Select Database Connection window closes. The Connections frame shows the connection whose name you entered in the Connection Name field in step 3.
+
+You are in the SQL Developer environment.
+
+To exit SQL Developer, select **Exit** from the File menu.
+
+> Note:
+> 
+> Exiting SQL Developer ends the SQL Developer session, but does not shut down the Oracle Database instance. The next time you start SQL Developer, the connection you created using the preceding procedure still exists. SQL Developer prompts you for the password that you supplied in step 3 (unless you selected the check box Save Password).
+
+**See Also:**
+
+- "[Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)"
+
+- "[About SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C00AD6B2-394E-4FD9-A0E4-E0A227662354)" for a brief description of SQL Developer
+
+- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) for more information about using SQL Developer to create connections to Oracle Database
