@@ -83,16 +83,21 @@ Unicode是一种字符编码系统，它定义了世界上大多数口语中的�
 **也可以看看:**
 - [Oracle Database Globalization Support Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=NLSPG146) 有关全球化支持特性的更多信息
 
-## 7.2 About Initial NLS Parameter Values
-Except in SQL Developer, the initial values of NLS parameters are set by database initialization parameters.
+<!-- ## 7.2 About Initial NLS Parameter Values -->
+## 7.2 关于初始化NLS参数变量
+<!-- Except in SQL Developer, the initial values of NLS parameters are set by database initialization parameters. -->
+除了SQL Developer, 区域语言支持的初始参数变量通过数据库的初始化参数进行设置
 
-The DBA can set the values of initialization parameters in the initialization parameter file, and they take effect the next time the database is started.
+<!-- The DBA can set the values of initialization parameters in the initialization parameter file, and they take effect the next time the database is started. -->
+DBA可以在参数初始化文件中设置初始化参数的值，它们将在下次启动数据库时生效。
 
-In SQL Developer, the initial values of NLS parameters are as shown in [Table 7-1](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-7C40C91D-FEC9-4454-B385-B4344CA16FC3__CACBAIJA).
+<!-- In SQL Developer, the initial values of NLS parameters are as shown in [Table 7-1](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-7C40C91D-FEC9-4454-B385-B4344CA16FC3__CACBAIJA). -->
 
-***Table 7-1 Initial Values of NLS Parameters in SQL Developer***
+在SQL Developer中，NLS参数的初始值如[表格 7-1](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-7C40C91D-FEC9-4454-B385-B4344CA16FC3__CACBAIJA)所示。
 
-|Parameter|	Initial Value|
+***表格 7-1 SQL Developer中NLS参数的初始值***
+
+|参数|	初始值|
 |:--|:--|
 |**NLS_CALENDAR**|GREGORIAN|
 |**NLS_CHARACTERSET**|AL32UTF8|
@@ -114,24 +119,38 @@ In SQL Developer, the initial values of NLS parameters are as shown in [Table 7-
 |**NLS_TIME_FORMAT**|HH.MI.SSXFF AM|
 |**NLS_TIME_TZ_FORMAT**|HH.MI.SSXFF AM TZR|
 
-**See Also:**
+**也可以看看:**
 
-[Oracle Database Administrator's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=ADMIN11099) for information about initialization parameters and initialization parameter files
+<!-- [Oracle Database Administrator's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=ADMIN11099) for information about initialization parameters and initialization parameter files -->
+[Oracle Database Administrator's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=ADMIN11099) 有关初始化参数及参数初始化文件的更多信息
 
-## 7.3 Viewing NLS Parameter Values
-To view the current values of NLS parameters, use the SQL Developer report National Language Support Parameters.
+<!-- ## 7.3 Viewing NLS Parameter Values -->
+## 7.3 查看NLS参数初始值
+<!-- To view the current values of NLS parameters, use the SQL Developer report National Language Support Parameters. -->
+要查看NLS参数的当前值，请使用SQL Developer报告国家语言支持的参数。
 
-**To view the National Language Support Parameters report:**
+<!-- **To view the National Language Support Parameters report:** -->
+**查看国家语言支持参数报告:**
 
-1. From the SQL Developer menu View, select **Reports**.
+<!-- 1. From the SQL Developer menu View, select **Reports**.
 2. In the Reports pane, expand **Data Dictionary Reports**.
 3. In the list of reports, expand **About Your Database**.
 4. In the list of reports, select **National Language Support Parameters**.
 5. In the Select Connection window, select **hr_conn**.
 6. Click **OK**.
 
-    The Select Connection window closes and the National Language Support Parameters pane appears, showing the names of the NLS parameters and their current values.
+    The Select Connection window closes and the National Language Support Parameters pane appears, showing the names of the NLS parameters and their current values. -->
 
-**See Also:**
+1. 在SQL Developer菜单视窗中，选择**报告**.
+2. 在报告窗格中, 展开 **数据字典报告**.
+3. 在报告列表中, 展开 **关于你的数据库**.
+4. 在报告列表中, 选择 **国家语言支持参数**.
+5. 在“选择连接”窗口中, 选择 **hr_conn**.
+6. 点击 **OK**.
 
-[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11000) for more information about SQL Developer reports
+    “选择连接”窗口将会关闭，并显示“国家语言支持参数”窗格，其中显示NLS参数的名称及其当前值
+
+**也可以看看:**
+
+<!-- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11000) for more information about SQL Developer reports -->
+[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11000) 有关SQL Developer报告的更多信息
