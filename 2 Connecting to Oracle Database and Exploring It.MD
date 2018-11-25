@@ -119,34 +119,56 @@ Disconnected from Oracle Database 12c Enterprise Edition Release - 12.1.0.1.0 64
 - [SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG002) 有关启动SQL\*Plus和连接Oracle数据库的更多详细信息
 
 
-## 2.2 Connecting to Oracle Database from SQL Developer
-SQL Developer is a client program with which you can access Oracle Database.
+<!-- ## 2.2 Connecting to Oracle Database from SQL Developer -->
+## 2.2 从SQL Developer连接Oracle数据库
+<!-- SQL Developer is a client program with which you can access Oracle Database. -->
+SQL Developer是一个可以连接Oracle数据库的客户端程序
 
-You are encouraged to use the currently available release of SQL Developer, which you can download from:
+<!-- You are encouraged to use the currently available release of SQL Developer, which you can download from: -->
+建议您使用当前可用的SQL Developer版本，您可以从以下链接下载：
 
 http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 
-This section assumes that SQL Developer is installed on your system, and shows how to start it and connect to Oracle Database. If SQL Developer is not installed on your system, then see [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100) for installation instructions.
+<!-- This section assumes that SQL Developer is installed on your system, and shows how to start it and connect to Oracle Database. If SQL Developer is not installed on your system, then see [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100) for installation instructions. -->
 
-> Note:
+本节假定您的系统上安装了SQL Developer，并说明了如何启动它并连接到Oracle数据库。如果SQL Developer没有装在你的系统上，查看[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100)的安装说明
+
+<!-- > Note:
 > 
 > For the following procedure:
 > 
 > - If you're using a SQL Developer kit that does not include the JDK, then the first time you start SQL Developer on your system, you must provide the path to the Java Development Kit.
 > 
-> - When prompted, you need to enter a user name and password.
+> - When prompted, you need to enter a user name and password. -->
 
-**To connect to Oracle Database from SQL Developer:**
+> 说明:
+> 
+> 对于以下过程:
+> 
+> - 如果您使用的是不包含JDK的SQL Developer工具包，那么第一次在系统上启动SQL Developer时，必须提供Java Development Kit的路径。
+> 
+> - 出现提示时，您需要输入用户名和密码。
 
-1. Start SQL Developer.
+
+<!-- **To connect to Oracle Database from SQL Developer:** -->
+**从SQL Developer连接到Oracle数据库:**
+
+<!-- 1. Start SQL Developer.
    
     For instructions, see [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100).
 
-    If this is the first time you have started SQL Developer on your system, you are prompted to enter the path to the Java Development Kit (JDK) installation (for example, *C:\Program Files\Java\jdk1.8.0_65*). Either type the path after the prompt or browse to it, and then press the key **Enter**.
+    If this is the first time you have started SQL Developer on your system, you are prompted to enter the path to the Java Development Kit (JDK) installation (for example, *C:\Program Files\Java\jdk1.8.0_65*). Either type the path after the prompt or browse to it, and then press the key **Enter**. -->
 
-2. In the Connections frame, click the icon **New Connection**.
+1. 启动SQL Developer。
+   
+    进一步说明可查看 [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10100).
 
-3. In the New/Select Database Connection window:
+    如果这是您第一次在系统上启动SQL Developer，系统会提示您输入Java Development Kit（JDK）安装的路径（例如，*C:\Program Files\Java\jdk1.8.0_65*）。 在提示后键入路径或浏览到该路径，然后按**回车键**。
+
+<!-- 2. In the Connections frame, click the icon **New Connection**. -->
+2. 在连接视窗中, 点击图标 **新的连接**.
+
+<!-- 3. In the New/Select Database Connection window:
 
     a. Type the appropriate values in the fields Connection Name, Username, and Password.
 
@@ -166,20 +188,52 @@ This section assumes that SQL Developer is installed on your system, and shows h
 
     e. If the test succeeded, click the button **Connect**.
 
-    &emsp;The New/Select Database Connection window closes. The Connections frame shows the connection whose name you entered in the Connection Name field in step 3.
+    &emsp;The New/Select Database Connection window closes. The Connections frame shows the connection whose name you entered in the Connection Name field in step 3. -->
 
-You are in the SQL Developer environment.
+3. 在“新建/选择数据库连接”窗口中：
 
-To exit SQL Developer, select **Exit** from the File menu.
+    a. 在“连接名称”，“用户名”和“密码”字段中键入适当的值。
 
-> Note:
+    &emsp;为安全起见，您键入的密码字符显示为星号。
+
+    &emsp;在密码区域附近是保存密码的选择框。默认情况下未勾选。 Oracle建议使用默认值。
+
+    b. 如果未显示Oracle窗格，请单击选项卡**Oracle**。
+
+    c. 在Oracle窗格中，接受默认值。
+
+    &emsp;（默认值为：连接类型，基本;角色，默认，主机名，localhost;端口，1521; SID选项，勾选; SID字段，xe。）
+
+    d. 单击按钮**测试**。
+
+    &emsp;连接将会进行测试。如果连接成功，则状态指示器将从空白更改为成功。
+
+    e. 如果测试成功了，请单击按钮**连接**。
+
+    &emsp;“新建/选择数据库连接”窗口会关闭。 连接视窗中会显示您在步骤3的连接名称字段中输入的连接名称。
+
+<!-- You are in the SQL Developer environment. -->
+当前你正处于SQL Developer环境。
+
+<!-- To exit SQL Developer, select **Exit** from the File menu. -->
+若要退出SQL Developer，请在文件菜单中选择**退出**。
+
+<!-- > Note:
 > 
-> Exiting SQL Developer ends the SQL Developer session, but does not shut down the Oracle Database instance. The next time you start SQL Developer, the connection you created using the preceding procedure still exists. SQL Developer prompts you for the password that you supplied in step 3 (unless you selected the check box Save Password).
+> Exiting SQL Developer ends the SQL Developer session, but does not shut down the Oracle Database instance. The next time you start SQL Developer, the connection you created using the preceding procedure still exists. SQL Developer prompts you for the password that you supplied in step 3 (unless you selected the check box Save Password). -->
 
-**See Also:**
+> 说明:
+> 
+> 退出SQL Developer会结束SQL Developer会话，但不会关闭Oracle数据库实例。 下次启动SQL Developer时，使用上述过程创建的连接仍然存在。 SQL Developer会提示您输入在步骤3中提供的密码（除非您勾选了“保存密码”选框）。
+
+**也可以看看:**
 
 - "[Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)"
 
-- "[About SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C00AD6B2-394E-4FD9-A0E4-E0A227662354)" for a brief description of SQL Developer
+<!-- - "[About SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C00AD6B2-394E-4FD9-A0E4-E0A227662354)" for a brief description of SQL Developer -->
 
-- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) for more information about using SQL Developer to create connections to Oracle Database
+- "[About SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-C00AD6B2-394E-4FD9-A0E4-E0A227662354)" 关于SQL Developer的简单介绍
+
+<!-- - [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) for more information about using SQL Developer to create connections to Oracle Database -->
+
+- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) 有关使用SQL Developer创建Oracle数据库连接的更多信息
