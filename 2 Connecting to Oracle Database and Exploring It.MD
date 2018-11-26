@@ -237,3 +237,103 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 <!-- - [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) for more information about using SQL Developer to create connections to Oracle Database -->
 
 - [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) 有关使用SQL Developer创建Oracle数据库连接的更多信息
+
+# 2.3 Connecting to Oracle Database as User HR
+To do the tutorials and examples in this document, you must connect to Oracle Database as the user HR.
+
+The user HR owns the HR sample schema that the examples and tutorials in this document use.
+
+[Unlocking the HR Account](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F779D716-7901-4A84-B854-67F4E03D24FB)
+
+You must unlock the HR account and reset its password before you can connect to Oracle Database as the user HR.
+
+[Connecting to Oracle Database as User HR from SQL*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)
+
+You can use SQL*Plus to connect to Oracle Database as the HR user.
+
+[Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)
+
+You can use SQL Developer to connect to Oracle Database as the HR user.
+
+## 2.3.1 Unlocking the HR Account
+
+You must unlock the HR account and reset its password before you can connect to Oracle Database as the user HR.
+
+By default, when the HR schema is installed, the HR account is locked and its password is expired.
+
+> Note:
+> 
+> For the following procedure, you need the name and password of a user who has the **ALTER USER** system privilege.
+
+
+**To unlock the HR account and reset its password:**
+
+1. Using SQL\*Plus, connect to Oracle Database as a user with the **ALTER USER** system privilege.
+2. At the *SQL>* prompt, unlock the HR account and reset its password:
+
+    > Caution:
+    > 
+    > Choose a secure password. For guidelines for secure passwords, see [Oracle Database Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=DBSEG10005).
+
+        ALTER USER HR ACCOUNT UNLOCK IDENTIFIED BY password;
+
+    The system responds:
+
+        User altered.
+
+    The HR account is unlocked and its password is *password*.
+
+Now you can connect to Oracle Database as user HR with the password *password*.
+
+**See Also:**
+
+- [Oracle Database 2 Day + Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=TDPSG20030) for information about predefined user accounts provided by Oracle Database, including HR
+- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10710) for information about accessing SQL\*Plus within SQL Developer
+
+## 2.3.2 Connecting to Oracle Database as User HR from SQL*Plus
+
+You can use SQL*Plus to connect to Oracle Database as the HR user.
+
+> Note:
+> 
+> If the HR account is locked, see "[Unlocking the HR Account](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F779D716-7901-4A84-B854-67F4E03D24FB)" and then return to this section.
+
+**To connect to Oracle Database as user HR from SQL\*Plus:**
+
+> Note:
+> 
+> For this task, you need the password for the HR account.
+
+1. If you are connected to Oracle Database, close your current connection.
+2. Follow the directions in "[Connecting to Oracle Database from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473)", entering the user name *HR* at step [3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGBCAGC) and the password for the HR account at step [4](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGDAHFF).
+
+    You are now connected to Oracle Database as the user HR.
+
+**See Also:**
+
+*[SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG008)* for an example of using SQL\*Plus to create an HR connection
+
+## 2.3.3 Connecting to Oracle Database as User HR from SQL Developer
+
+You can use SQL Developer to connect to Oracle Database as the HR user.
+
+> Note:
+> 
+> If the HR account is locked, see "Unlocking the HR Account" and then return to this section.
+
+**To connect to Oracle Database as user HR from SQL Developer:**
+
+> Note:
+> 
+> For this task, you need the password for the HR account.
+
+Follow the directions in "[Connecting to Oracle Database from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-4EF62A6C-8CDA-470A-901E-C24D2A9A5245)", entering the following values at steps [3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-4EF62A6C-8CDA-470A-901E-C24D2A9A5245__CEGGJCBH):
+
+- For Connection Name, enter *hr_conn*.
+
+    (You can enter a different name, but the tutorials in this document assume that you named the connection hr_conn.)
+
+- For Username, enter *HR*.
+- For Password, enter the password for the HR account.
+
+You are now connected to Oracle Database as the user HR.
