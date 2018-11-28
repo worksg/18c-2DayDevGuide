@@ -238,102 +238,103 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 
 - [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) 有关使用SQL Developer创建Oracle数据库连接的更多信息
 
-# 2.3 Connecting to Oracle Database as User HR
-To do the tutorials and examples in this document, you must connect to Oracle Database as the user HR.
+# 2.3 以用户HR身份连接到Oracle数据库
 
-The user HR owns the HR sample schema that the examples and tutorials in this document use.
+要执行本文档中的教程和示例，您必须以用户HR身份连接到Oracle数据库。
+
+用户HR拥有本文档中的示例和教程使用的HR示例模式。
 
 [Unlocking the HR Account](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F779D716-7901-4A84-B854-67F4E03D24FB)
 
-You must unlock the HR account and reset its password before you can connect to Oracle Database as the user HR.
+您必须先解锁HR帐户并重置其密码，然后才能以用户HR身份连接到Oracle数据库。
 
 [Connecting to Oracle Database as User HR from SQL*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)
 
-You can use SQL*Plus to connect to Oracle Database as the HR user.
+您可以使用SQL\*Plus以用户HR身份连接到Oracle数据库。
 
 [Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)
 
-You can use SQL Developer to connect to Oracle Database as the HR user.
+您可以使用SQL Developer以HR用户身份连接到Oracle数据库。
 
-## 2.3.1 Unlocking the HR Account
+## 2.3.1 解锁HR账户
 
-You must unlock the HR account and reset its password before you can connect to Oracle Database as the user HR.
+您必须先解锁HR帐户并重置其密码，然后才能以用户HR身份连接到Oracle数据库。
 
-By default, when the HR schema is installed, the HR account is locked and its password is expired.
+默认情况下，安装HR模式时，HR帐户将被锁定，其密码已过期。
 
-> Note:
+> 说明:
 > 
-> For the following procedure, you need the name and password of a user who has the **ALTER USER** system privilege.
+> 对于以下过程，您需要具有**ALTER USER**系统特权的用户的名称和密码。
 
 
-**To unlock the HR account and reset its password:**
+**解锁HR帐户并重置密码:**
 
-1. Using SQL\*Plus, connect to Oracle Database as a user with the **ALTER USER** system privilege.
-2. At the *SQL>* prompt, unlock the HR account and reset its password:
+1. 使用SQL\*Plus，以具有**ALTER USER**系统特权的用户身份连接到Oracle数据库。
+2. 在*SQL>*提示符下，解锁HR帐户并重置其密码:
 
-    > Caution:
+    > 注意:
     > 
-    > Choose a secure password. For guidelines for secure passwords, see [Oracle Database Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=DBSEG10005).
+    > 选择安全密码。 有关安全密码的准则，可以查看 [Oracle Database Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=DBSEG10005).
 
         ALTER USER HR ACCOUNT UNLOCK IDENTIFIED BY password;
 
-    The system responds:
+    系统响应:
 
         User altered.
 
-    The HR account is unlocked and its password is *password*.
+    HR帐户已解锁，密码为*password*.
 
-Now you can connect to Oracle Database as user HR with the password *password*.
+现在，您可以使用密码*password*以用户HR身份连接到Oracle数据库
 
-**See Also:**
+**也可以看看:**
 
-- [Oracle Database 2 Day + Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=TDPSG20030) for information about predefined user accounts provided by Oracle Database, including HR
-- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10710) for information about accessing SQL\*Plus within SQL Developer
+- [Oracle Database 2 Day + Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=TDPSG20030) 有关Oracle数据库提供的预定义用户帐户的信息，包括HR
+- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10710) 有关在SQL Developer中访问SQL\*Plus的信息
 
-## 2.3.2 Connecting to Oracle Database as User HR from SQL*Plus
+## 2.3.2 使用SQL*Plus以用户HR身份连接到Oracle数据库
 
-You can use SQL*Plus to connect to Oracle Database as the HR user.
+您可以使用SQL\*Plus以用户HR身份连接到Oracle数据库。
 
-> Note:
+> 说明:
 > 
-> If the HR account is locked, see "[Unlocking the HR Account](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F779D716-7901-4A84-B854-67F4E03D24FB)" and then return to this section.
+> 如果HR账户被锁定, 可以查看 "[Unlocking the HR Account](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F779D716-7901-4A84-B854-67F4E03D24FB)" and then return to this section.
 
-**To connect to Oracle Database as user HR from SQL\*Plus:**
+**从SQL\*Plus以用户HR身份连接到Oracle数据库:**
 
-> Note:
+> 说明:
 > 
-> For this task, you need the password for the HR account.
+> 此任务中，您需要HR帐户的密码.
 
-1. If you are connected to Oracle Database, close your current connection.
-2. Follow the directions in "[Connecting to Oracle Database from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473)", entering the user name *HR* at step [3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGBCAGC) and the password for the HR account at step [4](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGDAHFF).
+1. 如果已连接到Oracle数据库，请关闭当前连接。
+2. 按照说明 "[Connecting to Oracle Database from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473)" 进行操作, 在第[3]((https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGBCAGC))步输入用户名 *HR* 在步骤[4]((https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-F386B7FE-7FDD-4C49-B809-63A46D339473__CEGDAHFF))输入HR帐户的密码.
 
-    You are now connected to Oracle Database as the user HR.
+    您现在以用户HR连接到Oracle数据库。
 
-**See Also:**
+**也可以看看:**
 
-*[SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG008)* for an example of using SQL\*Plus to create an HR connection
+*[SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG008)* 有关使用SQL\*Plus创建HR连接的示例
 
-## 2.3.3 Connecting to Oracle Database as User HR from SQL Developer
+## 2.3.3 从SQL Developer以用户HR身份连接到Oracle数据库
 
-You can use SQL Developer to connect to Oracle Database as the HR user.
+您可以使用SQL Developer以HR用户身份连接到Oracle数据库。
 
-> Note:
+> 说明:
 > 
-> If the HR account is locked, see "Unlocking the HR Account" and then return to this section.
+> 如果HR帐户已锁定，请参阅“解锁HR帐户”，然后返回此部分。
 
-**To connect to Oracle Database as user HR from SQL Developer:**
+**从SQL Developer以用户HR身份连接到Oracle数据库:**
 
-> Note:
+> 说明:
 > 
-> For this task, you need the password for the HR account.
+> 在此任务中，您需要HR帐户的密码。
 
-Follow the directions in "[Connecting to Oracle Database from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-4EF62A6C-8CDA-470A-901E-C24D2A9A5245)", entering the following values at steps [3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-4EF62A6C-8CDA-470A-901E-C24D2A9A5245__CEGGJCBH):
+按照说明 "[Connecting to Oracle Database from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-4EF62A6C-8CDA-470A-901E-C24D2A9A5245)", 在步骤[3]((https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-4EF62A6C-8CDA-470A-901E-C24D2A9A5245__CEGGJCBH))中输入以下值:
 
-- For Connection Name, enter *hr_conn*.
+- 对于连接名称，输入 *hr_conn*.
 
-    (You can enter a different name, but the tutorials in this document assume that you named the connection hr_conn.)
+    (您可以输入其他名称，但本文档中的教程假定您将连接命名为hr_conn。)
 
-- For Username, enter *HR*.
-- For Password, enter the password for the HR account.
+- 对于用户名称, 输入 *HR*.
+- 对用户密码, 输入HR账户的密码.
 
-You are now connected to Oracle Database as the user HR.
+您现在以用户HR连接到Oracle数据库。
