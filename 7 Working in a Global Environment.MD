@@ -155,24 +155,28 @@ DBA可以在参数初始化文件中设置初始化参数的值，它们将在�
 <!-- [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11000) for more information about SQL Developer reports -->
 [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11000) 有关SQL Developer报告的更多信息
 
-## 7.4 Changing NLS Parameter Values
-You can change the value of one or more NLS parameters in any of these ways.
+<!-- ## 7.4 Changing NLS Parameter Values -->
+## 7.4 改变NLS参数值
+<!-- You can change the value of one or more NLS parameters in any of these ways. -->
+您可以通过以下任何方式更改一个或多个NLS参数的值。
 
-- Change the values for all SQL Developer connections, current and future.
+<!-- - Change the values for all SQL Developer connections, current and future. -->
+- 更改所有SQL Developer连接的值，当前的连接和以后的连接。
 
-- On the client, change the settings of the corresponding NLS environment variables.
+<!-- - On the client, change the settings of the corresponding NLS environment variables. -->
+- 在客户端上，更改相应NLS环境变量的设置。
 
-    Only on the client, the new values of the NLS environment variables override the values of the corresponding NLS parameters.
+    仅在客户端上，NLS环境变量的新值将覆盖相应NLS参数的值。
 
-    You can use environment variables to specify locale-dependent behavior for the client. For example, on a Linux system, this statement sets the value of the **NLS_SORT** environment variable to FRENCH, overriding the value of the **NLS_SORT** parameter:
+    您可以使用环境变量为客户端指定与区域设置相关的行为。 例如，在Linux系统上，下面的语句将 **NLS_SORT** 环境变量的值设置为FRENCH，从而覆盖 **NLS_SORT** 参数的值：
 
         % setenv NLS_SORT FRENCH
 
-    > Note:
+    > 说明:
     > 
-    > Environment variables might be platform-dependent.
+    > 环境变量可能有平台依赖。
 
-- Change the values only for the current session, using an **ALTER SESSION** statement with this syntax:
+<!-- - Change the values only for the current session, using an **ALTER SESSION** statement with this syntax:
     ```
     ALTER SESSION SET parameter_name=parameter_value
       [ parameter_name=parameter_value ]... ;
@@ -180,9 +184,19 @@ You can change the value of one or more NLS parameters in any of these ways.
 
     Only in the current session, the new values override those set in all of the preceding ways.
 
-    You can use the **ALTER SESSION** to test your application with the settings for different locales.
+    You can use the **ALTER SESSION** to test your application with the settings for different locales. -->
 
-- Change the values only for the current SQL function invocation.
+- 仅使用具有以下语法的 **ALTER SESSION** 语句更改当前会话的值:
+    ```
+    ALTER SESSION SET parameter_name=parameter_value
+      [ parameter_name=parameter_value ]... ;
+    ```
+
+    仅在当前会话中，新值将覆盖此前所有方式中设置的值。
+
+    您可以在不同语言环境下使用 **ALTER SESSION** 设置语言和测试您的应用程序。
+
+<!-- - Change the values only for the current SQL function invocation.
 
     Only for the current SQL function invocation, the new values override those set in all of the preceding ways.
 
@@ -192,43 +206,58 @@ You can change the value of one or more NLS parameters in any of these ways.
 
     [Changing NLS Parameter Values for the Current SQL Function Invocation](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-A23AFF23-CAF3-4ABB-999A-ED4BA5F48C94)
 
-    SQL functions whose behavior depends on the values of NLS parameters are called **locale-dependent**. Some locale-dependent SQL functions have optional NLS parameters.
+    SQL functions whose behavior depends on the values of NLS parameters are called **locale-dependent**. Some locale-dependent SQL functions have optional NLS parameters. -->
 
-**See Also:**
+- 仅为当前SQL函数调用更改值.
 
-- *[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00901)* for more information about the **ALTER SESSION** statement
-- *[Oracle Database Globalization Support Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=NLSPG188)* for more information about setting NLS parameters
+    仅对于当前的SQL函数调用，新值将覆盖此前所有方式中设置的值。
 
-## 7.4.1 Changing NLS Parameter Values for All SQL Developer Connections
+    [Changing NLS Parameter Values for All SQL Developer Connections](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-F46B4DC0-00F6-4B58-9BF8-9F1791B8E8B5)
 
-You can change the values of NLS parameters for all SQL Developer connections, current and future.
+    更改所有SQL Developer连接的值，当前的连接和以后的连接。
 
-**To change National Language Support Parameter values:**
+    [Changing NLS Parameter Values for the Current SQL Function Invocation](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-A23AFF23-CAF3-4ABB-999A-ED4BA5F48C94)
 
-1. From the SQL Developer menu Tools, select **Preferences**.
-2. In the Preferences window, in the left frame, expand **Database**.
-3. In the list of database preferences, click **NLS**.
+    SQL函数行为依赖NLS参数值的SQL函数称为**语言环境相关**。 一些与语言环境相关的SQL函数拥有可选的NLS参数
+
+**也可以看看:**
+
+- *[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00901)* 有关**ALTER SESSION**语句的更多信息
+
+- *[Oracle Database Globalization Support Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=NLSPG188)* 有关设置NLS参数值的更多信息
+
+## 7.4.1 更改所有SQL Developer连接的NLS参数值
+
+你可以更改所有SQL Developer连接的值，当前的连接和以后的连接。
+
+<!-- **To change National Language Support Parameter values:** -->
+**更改国家语言支持参数值:**
+
+1. 从SQL Developer菜单工具中，选择 **首选项**。
+2. 在“首选项”窗口的左侧框架中，展开 **数据库**。
+3. 在数据库首选项列表中，点击 **NLS**.
    
-    A list of NLS parameters and their current values appears. The value fields are menus.
+    将显示NLS参数列表及其当前值。 菜单是值字段。
 
 4. From the menu to the right of each parameter whose value you want to change, select the desired value.
-5. Click **OK**.
+5. 从菜单右侧的参数列表中寻找想要更改的参数，再选择所需的参数值。
+6. 点击 **OK**.
 
-    The NLS parameters now have the values that you specified. To verify these values, see "[Viewing NLS Parameter Values](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-24B37C78-7D48-4103-9CF1-04852BA8D30F)".
+    NLS参数现在具有您指定的值。 如果需要验证这些值，可以查看"[Viewing NLS Parameter Values](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-24B37C78-7D48-4103-9CF1-04852BA8D30F)"。
 
-> Note:
+> 说明:
 > 
-> If the NLS parameter values do not reflect your changes, click the icon **Run Report**.
+> 如果NLS参数值未反映您的更改，请点击图标**运行报告**.
 
-**See Also:**
+**也可以看看:**
 
-*[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11100)* for more information about SQL Developer preferences
+*[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG11100)* 有关SQL Developer首选项的更多信息
 
-## 7.4.2 Changing NLS Parameter Values for the Current SQL Function Invocation
+## 7.4.2 更改当前SQL函数调用的NLS参数值
 
-SQL functions whose behavior depends on the values of NLS parameters are called **locale-dependent**. Some locale-dependent SQL functions have optional NLS parameters.
+SQL函数行为依赖NLS参数值的SQL函数称为**语言环境相关**。 一些与语言环境相关的SQL函数拥有可选的NLS参数
 
-The local-dependent functions that have optional NLS parameters are:
+具有可选NLS参数的语言环境相关函数是:
 
 - TO_CHAR
 - TO_DATE
@@ -238,7 +267,7 @@ The local-dependent functions that have optional NLS parameters are:
 - NLS_INITCAP
 - NLSSORT
 
-In all of the preceding functions, you can specify these NLS parameters:
+在上述所有功能中，您可以指定这些NLS参数:
 
 - NLS_DATE_LANGUAGE
 - NLS_DATE_LANGUAGE
@@ -249,35 +278,37 @@ In all of the preceding functions, you can specify these NLS parameters:
 - NLS_CALENDAR
 - NLS_SORT
 
-In the NLSSORT function, you can also specify these NLS parameters:
+在NLSSORT函数中，您还可以指定这些NLS参数:
 
 - NLS_LANGUAGE
 - NLS_TERRITORY
 - NLS_DATE_FORMAT
 
-To specify NLS parameters in a function, use this syntax:
+要在函数中指定NLS参数，请使用此语法:
 
     'parameter=value' ['parameter=value']...
 
-Suppose that you want **NLS_DATE_LANGUAGE** to be AMERICAN when this query is evaluated:
+假设您在评估此查询时希望**NLS_DATE_LANGUAGE**为AMERICAN：
+<!-- Suppose that you want **NLS_DATE_LANGUAGE** to be AMERICAN when this query is evaluated: -->
 
     SELECT last_name FROM employees WHERE hire_date > '01-JAN-1999';
 
-You can set **NLS_DATE_LANGUAGE** to AMERICAN before running the query:
+在运行查询之前，您可以将**NLS_DATE_LANGUAGE**设置为AMERICAN:
 
     ALTER SESSION SET NLS_DATE_LANGUAGE=American;
     SELECT last_name FROM employees WHERE hire_date > '01-JAN-1999';
 
-Alternatively, you can set **NLS_DATE_LANGUAGE** to AMERICAN inside the query, using the locale-dependent SQL function **TO_DATE** with its optional **NLS_DATE_LANGUAGE** parameter:
+或者，您可以使用语言环境相关的SQL函数**TO_DATE**及其可选的**NLS_DATE_LANGUAGE**参数，在查询中将**NLS_DATE_LANGUAGE**设置为AMERICAN
+<!-- Alternatively, you can set **NLS_DATE_LANGUAGE** to AMERICAN inside the query, using the locale-dependent SQL function **TO_DATE** with its optional **NLS_DATE_LANGUAGE** parameter: -->
 
     SELECT last_name FROM employees
     WHERE hire_date > TO_DATE('01-JAN-1999', 'DD-MON-YYYY',
                             'NLS_DATE_LANGUAGE=AMERICAN');
 
-**Tip:**
+**提示:**
 
-Using session default values for NLS parameters in SQL functions usually results in better performance. Therefore, specify optional NLS parameters in locale-dependent SQL functions only in SQL statements that must not use the default NLS parameter values.
+在SQL函数中使用NLS参数的会话默认值通常会带来更好的性能。 因此，仅在不能使用默认NLS参数值的SQL语句中，才在语言环境相关的SQL函数中指定可选的NLS参数。
 
-**See Also:**
+**也可以看看:**
 
-*[Oracle Database Globalization Support Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=NLSPG009)* for more information about locale-dependent SQL functions with optional NLS parameters
+*[Oracle Database Globalization Support Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=NLSPG009)* 有关语言环境相关的SQL函数及可选的NLS参数的更多信息
