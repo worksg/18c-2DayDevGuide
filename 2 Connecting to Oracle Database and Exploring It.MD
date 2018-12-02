@@ -238,7 +238,7 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 
 - [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10400) 有关使用SQL Developer创建Oracle数据库连接的更多信息
 
-# 2.3 以用户HR身份连接到Oracle数据库
+## 2.3 以用户HR身份连接到Oracle数据库
 
 要执行本文档中的教程和示例，您必须以用户HR身份连接到Oracle数据库。
 
@@ -256,7 +256,7 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 
 您可以使用SQL Developer以HR用户身份连接到Oracle数据库。
 
-## 2.3.1 解锁HR账户
+### 2.3.1 解锁HR账户
 
 您必须先解锁HR帐户并重置其密码，然后才能以用户HR身份连接到Oracle数据库。
 
@@ -291,7 +291,7 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 - [Oracle Database 2 Day + Security Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=TDPSG20030) 有关Oracle数据库提供的预定义用户帐户的信息，包括HR
 - [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10710) 有关在SQL Developer中访问SQL\*Plus的信息
 
-## 2.3.2 使用SQL*Plus以用户HR身份连接到Oracle数据库
+### 2.3.2 使用SQL*Plus以用户HR身份连接到Oracle数据库
 
 您可以使用SQL\*Plus以用户HR身份连接到Oracle数据库。
 
@@ -314,7 +314,7 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 
 *[SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG008)* 有关使用SQL\*Plus创建HR连接的示例
 
-## 2.3.3 从SQL Developer以用户HR身份连接到Oracle数据库
+### 2.3.3 从SQL Developer以用户HR身份连接到Oracle数据库
 
 您可以使用SQL Developer以HR用户身份连接到Oracle数据库。
 
@@ -338,3 +338,226 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 - 对用户密码, 输入HR账户的密码.
 
 您现在以用户HR连接到Oracle数据库。
+
+## 2.4 Exploring Oracle Database with SQL*Plus
+If you are connected to Oracle Database from SQL*Plus as the user HR, you can view HR schema objects and the properties of the EMPLOYEES table.
+
+> Note:
+> 
+> If you are not connected to Oracle Database as user HR from SQL\*Plus, see "
+> [Connecting to Oracle Database as User HR from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)" and then return to this section.
+
+[Viewing HR Schema Objects with SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-7BCD3985-F47E-4354-B711-3F05D3B82088)
+
+With SQL\*Plus, you can view the objects that belong to the HR schema by querying the static data dictionary view **USER_OBJECTS**.
+
+[Viewing EMPLOYEES Table Properties and Data with SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4)
+
+You can a SQL\*Plus command, the SQL **SELECT**statement, and static data dictionary views to view the properties and data of the HR.EMPLOYEES table.
+
+### 2.4.1 Viewing HR Schema Objects with SQL*Plus
+With SQL\*Plus, you can view the objects that belong to the HR schema by querying the static data dictionary view **USER_OBJECTS**.
+
+[Example 2-2](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-7BCD3985-F47E-4354-B711-3F05D3B82088__CEGDDFDD) shows how to view the names and data types of the objects that belong to the HR schema.
+
+***Example 2-2 Viewing HR Schema Objects with SQL\*Plus***
+```
+COLUMN OBJECT_NAME FORMAT A25
+COLUMN OBJECT_TYPE FORMAT A25
+
+SELECT OBJECT_NAME, OBJECT_TYPE FROM USER_OBJECTS
+ORDER BY OBJECT_TYPE, OBJECT_NAME;
+```
+Result is similar to:
+```
+OBJECT_NAME               OBJECT_TYPE
+------------------------- -------------------------
+COUNTRY_C_ID_PK           INDEX
+DEPT_ID_PK                INDEX
+DEPT_LOCATION_IX          INDEX
+EMP_DEPARTMENT_IX         INDEX
+EMP_EMAIL_UK              INDEX
+EMP_EMP_ID_PK             INDEX
+EMP_JOB_IX                INDEX
+EMP_MANAGER_IX            INDEX
+EMP_NAME_IX               INDEX
+JHIST_DEPARTMENT_IX       INDEX
+JHIST_EMPLOYEE_IX         INDEX
+JHIST_EMP_ID_ST_DATE_PK   INDEX
+JHIST_JOB_IX              INDEX
+JOB_ID_PK                 INDEX
+LOC_CITY_IX               INDEX
+LOC_COUNTRY_IX            INDEX
+LOC_ID_PK                 INDEX
+LOC_STATE_PROVINCE_IX     INDEX
+REG_ID_PK                 INDEX
+ADD_JOB_HISTORY           PROCEDURE
+SECURE_DML                PROCEDURE
+DEPARTMENTS_SEQ           SEQUENCE
+EMPLOYEES_SEQ             SEQUENCE
+LOCATIONS_SEQ             SEQUENCE
+COUNTRIES                 TABLE
+DEPARTMENTS               TABLE
+EMPLOYEES                 TABLE
+JOBS                      TABLE
+JOB_HISTORY               TABLE
+LOCATIONS                 TABLE
+REGIONS                   TABLE
+SECURE_EMPLOYEES          TRIGGER
+UPDATE_JOB_HISTORY        TRIGGER
+EMP_DETAILS_VIEW          VIEW
+
+34 rows selected.
+```
+
+**See Also:**
+
+*[Oracle Database Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=REFRN20146)* for information about **USER_OBJECTS**
+
+"[Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)" for information about using queries to view table data
+
+"[About Sample Schema HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-F55D4815-FCD8-4075-AEBC-BC2B57A47F9E)" for general information about the schema HR
+
+### 2.4.2 Viewing EMPLOYEES Table Properties and Data with SQL*Plus
+
+You can a SQL\*Plus command, the SQL **SELECT**statement, and static data dictionary views to view the properties and data of the HR.EMPLOYEES table.
+
+You can use the SQL\*Plus command DESCRIBE to view the properties of the columns of the EMPLOYEES table in the HR schema and the SQL statement **SELECT** to view the data. To view other properties of the table, use static data dictionary views (for example, **USER_CONSTRAINTS**, **USER_INDEXES**, and **USER_TRIGGERS**).
+
+[Example 2-3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4__CEGCGJGA) shows how to view the properties of the EMPLOYEES table in the HR schema.
+
+***Example 2-3 Viewing EMPLOYEES Table Properties with SQL\*Plus***
+```
+DESCRIBE EMPLOYEES
+```
+Result:
+```
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -------------
+ 
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+```
+[Example 2-4](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4__CEGBDFHB) shows how to view some data in the EMPLOYEES table in the HR schema.
+
+***Example 2-4 Viewing EMPLOYEES Table Data with SQL\*Plus***
+```
+COLUMN FIRST_NAME FORMAT A20
+COLUMN LAST_NAME FORMAT A25
+COLUMN PHONE_NUMBER FORMAT A20
+
+SELECT LAST_NAME, FIRST_NAME, PHONE_NUMBER FROM EMPLOYEES
+ORDER BY LAST_NAME;
+```
+Result is similar to:
+```
+LAST_NAME                 FIRST_NAME           PHONE_NUMBER
+------------------------- -------------------- --------------------
+Abel                      Ellen                011.44.1644.429267
+Ande                      Sundar               011.44.1346.629268
+Atkinson                  Mozhe                650.124.6234
+Austin                    David                590.423.4569
+Baer                      Hermann              515.123.8888
+Baida                     Shelli               515.127.4563
+Banda                     Amit                 011.44.1346.729268
+Bates                     Elizabeth            011.44.1343.529268
+...
+Urman                     Jose Manuel          515.124.4469
+Vargas                    Peter                650.121.2004
+Vishney                   Clara                011.44.1346.129268
+Vollman                   Shanta               650.123.4234
+Walsh                     Alana                650.507.9811
+Weiss                     Matthew              650.123.1234
+Whalen                    Jennifer             515.123.4444
+Zlotkey                   Eleni                011.44.1344.429018
+ 
+107 rows selected.
+```
+**See Also:**
+
+*[SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG040)* for information about *DESCRIBE*
+
+"[Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)" for information about using queries to view table data
+
+*[Oracle Database Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=REFRN002)* for information about static data dictionary views
+
+## 2.5 Exploring Oracle Database with SQL Developer
+If you are connected to Oracle Database from SQL Developer as the user HR, you can view HR schema objects and the properties of the EMPLOYEES table.
+
+[Tutorial: Viewing HR Schema Objects with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-C5118FEB-8476-4CA2-A1D5-81ACFFCD1927)  
+This tutorial shows how to use SQL Developer to view the objects that belong to the HR schema—that is, how to **browse** the HR schema.
+
+[Tutorial: Viewing EMPLOYEES Table Properties and Data with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-D1FFB912-EDC5-4DE0-BABC-902207A2F04C)  
+This tutorial shows how to use SQL Developer to view the properties and data of the EMPLOYEES table in the HR schema.
+
+### 2.5.1 Tutorial: Viewing HR Schema Objects with SQL Developer
+This tutorial shows how to use SQL Developer to view the objects that belong to the HR schema—that is, how to **browse** the HR schema.
+
+> Note:
+>
+> If you are not connected to Oracle Database as user HR from SQL Developer, see "[Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)" and then return to this tutorial.
+
+**To browse the HR schema:**
+
+1. In the Connections frame, to the left of the hr_conn icon, click the **plus sign (+)**.
+
+    If you are not connected to the database, the Connection Information window opens. If you are connected to the database, the hr_conn information expands (see the information that follows "Click OK" in step 2).
+
+2. If the Connection Information window opens:
+
+    a. In the User Name field, enter hr.
+
+    b. In the Password field, enter the password for the user HR.
+
+    c. Click **OK**.
+
+The hr_conn information expands: The plus sign becomes a minus sign (-), and under the hr_conn icon, a list of schema object types appears—Tables, Views, Indexes, and so on. (If you click the minus sign, the hr_conn information collapses: The minus sign becomes a plus sign, and the list disappears.)
+
+**See Also:**
+
+*[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10200)* for more information about the SQL Developer user interface
+
+"[About Sample Schema HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-F55D4815-FCD8-4075-AEBC-BC2B57A47F9E)" for general information about schema HR
+
+### 2.5.2 Tutorial: Viewing EMPLOYEES Table Properties and Data with SQL Developer
+
+This tutorial shows how to use SQL Developer to view the properties and data of the EMPLOYEES table in the HR schema.
+
+> Note:
+> 
+> If you are not browsing the HR schema, see "[Tutorial: Viewing HR Schema Objects with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-C5118FEB-8476-4CA2-A1D5-81ACFFCD1927)" and then return to this tutorial.
+
+**To view the properties and data of the EMPLOYEES table:**
+
+1. In the Connections frame, expand **Tables**.
+   
+    Under Tables, a list of the tables in the HR schema appears.
+
+2. Select the table **EMPLOYEES**.
+
+    In the right frame of the Oracle SQL Developer window, in the Columns pane, a list of all columns of this table appears. To the right of each column are its properties—name, data type, and so on. (To see all column properties, move the horizontal scroll bar to the right.)
+
+3. In the right frame, click the tab **Data**.
+   
+    The Data pane appears, showing a numbered list of all records in this table. (To see more records, move the vertical scroll bar down. To see more columns of the records, move the horizontal scroll bar to the right.)
+
+4. In the right frame, click the tab **Constraints**.
+   
+    The Constraints pane appears, showing a list of all constraints on this table. To the right of each constraint are its properties—name, type, search condition, and so on. (To see all constraint properties, move the horizontal scroll bar to the right.)
+
+5. Explore the other properties by clicking on the appropriate tabs.
+    
+    To see the SQL statement for creating the EMPLOYEES table, click the **SQL** tab. The SQL statement appears in a pane named EMPLOYEES. To close this pane, click the **x** to the right of the name EMPLOYEES.
+
+**See Also:**
+
+Oracle SQL Developer User's Guide for more information about the SQL Developer user interface
