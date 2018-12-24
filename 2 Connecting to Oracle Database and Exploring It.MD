@@ -339,28 +339,30 @@ http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/
 
 您现在以用户HR连接到Oracle数据库。
 
-## 2.4 Exploring Oracle Database with SQL*Plus
-If you are connected to Oracle Database from SQL*Plus as the user HR, you can view HR schema objects and the properties of the EMPLOYEES table.
+## 2.4 使用SQL * Plus探索Oracle数据库
+如果从SQL\*Plus以用户HR身份连接到Oracle数据库，则可以查看HR模式对象和EMPLOYEES表的属性。
 
-> Note:
+> 说明:
 > 
-> If you are not connected to Oracle Database as user HR from SQL\*Plus, see "
-> [Connecting to Oracle Database as User HR from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)" and then return to this section.
+> 如果你没有使用SQL\*Plus以用户HR连接到Oracle数据库, 请查看"
+> [Connecting to Oracle Database as User HR from SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3EBC7F86-1D6E-4E44-9D17-B3FCB69607CB)" 然后回到本节点。
 
 [Viewing HR Schema Objects with SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-7BCD3985-F47E-4354-B711-3F05D3B82088)
 
-With SQL\*Plus, you can view the objects that belong to the HR schema by querying the static data dictionary view **USER_OBJECTS**.
+<!-- With SQL\*Plus, you can view the objects that belong to the HR schema by querying the static data dictionary view **USER_OBJECTS**. -->
+使用SQL\*Plus，您可以通过查询静态数据字典视图**USER_OBJECTS**来查看属于HR模式的对象。
 
 [Viewing EMPLOYEES Table Properties and Data with SQL\*Plus](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4)
 
-You can a SQL\*Plus command, the SQL **SELECT**statement, and static data dictionary views to view the properties and data of the HR.EMPLOYEES table.
+<!-- You can a SQL\*Plus command, the SQL **SELECT**statement, and static data dictionary views to view the properties and data of the HR.EMPLOYEES table. -->
+您可以使用SQL\*Plus命令，SQL **SELECT**语句和静态数据字典视图来查看HR.EMPLOYEES表的属性和数据。
 
-### 2.4.1 Viewing HR Schema Objects with SQL*Plus
-With SQL\*Plus, you can view the objects that belong to the HR schema by querying the static data dictionary view **USER_OBJECTS**.
+### 2.4.1 使用SQL * Plus查看HR模式对象
+使用SQL\*Plus，您可以通过查询静态数据字典视图**USER_OBJECTS**来查看属于HR模式的对象。
 
-[Example 2-2](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-7BCD3985-F47E-4354-B711-3F05D3B82088__CEGDDFDD) shows how to view the names and data types of the objects that belong to the HR schema.
+[Example 2-2](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-7BCD3985-F47E-4354-B711-3F05D3B82088__CEGDDFDD) 显示了如何查看属于HR模式的对象的名称和数据类型。
 
-***Example 2-2 Viewing HR Schema Objects with SQL\*Plus***
+***Example 2-2 使用SQL\*Plus查看HR模式对象***
 ```
 COLUMN OBJECT_NAME FORMAT A25
 COLUMN OBJECT_TYPE FORMAT A25
@@ -368,7 +370,7 @@ COLUMN OBJECT_TYPE FORMAT A25
 SELECT OBJECT_NAME, OBJECT_TYPE FROM USER_OBJECTS
 ORDER BY OBJECT_TYPE, OBJECT_NAME;
 ```
-Result is similar to:
+结果类似于:
 ```
 OBJECT_NAME               OBJECT_TYPE
 ------------------------- -------------------------
@@ -410,27 +412,29 @@ EMP_DETAILS_VIEW          VIEW
 34 rows selected.
 ```
 
-**See Also:**
+**也可以看看:**
 
-*[Oracle Database Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=REFRN20146)* for information about **USER_OBJECTS**
+*[Oracle Database Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=REFRN20146)* 有关**USER_OBJECTS**的信息
 
-"[Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)" for information about using queries to view table data
+"[Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)" 有关使用查询查看表数据的信息
 
-"[About Sample Schema HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-F55D4815-FCD8-4075-AEBC-BC2B57A47F9E)" for general information about the schema HR
+"[About Sample Schema HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-F55D4815-FCD8-4075-AEBC-BC2B57A47F9E)" 有关模式HR的简要信息
 
-### 2.4.2 Viewing EMPLOYEES Table Properties and Data with SQL*Plus
+### 2.4.2 使用SQL*Plus查看EMPLOYEES表属性和数据
 
-You can a SQL\*Plus command, the SQL **SELECT**statement, and static data dictionary views to view the properties and data of the HR.EMPLOYEES table.
+您可以使用SQL\*Plus命令，SQL **SELECT**语句和静态数据字典视图来查看HR.EMPLOYEES表的属性和数据。
 
-You can use the SQL\*Plus command DESCRIBE to view the properties of the columns of the EMPLOYEES table in the HR schema and the SQL statement **SELECT** to view the data. To view other properties of the table, use static data dictionary views (for example, **USER_CONSTRAINTS**, **USER_INDEXES**, and **USER_TRIGGERS**).
+<!-- You can use the SQL\*Plus command DESCRIBE to view the properties of the columns of the EMPLOYEES table in the HR schema and the SQL statement **SELECT** to view the data. To view other properties of the table, use static data dictionary views (for example, **USER_CONSTRAINTS**, **USER_INDEXES**, and **USER_TRIGGERS**). -->
 
-[Example 2-3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4__CEGCGJGA) shows how to view the properties of the EMPLOYEES table in the HR schema.
+您可以使用SQL\*Plus命令DESCRIBE来查看HR模式中EMPLOYEES表的列的属性，并使用SQL语句**SELECT**来查看数据。 要查看表的其他属性，请使用静态数据字典视图（例如，**USER_CONSTRAINTS**，**USER_INDEXES**和**USER_TRIGGERS**）。
 
-***Example 2-3 Viewing EMPLOYEES Table Properties with SQL\*Plus***
+[Example 2-3](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4__CEGCGJGA) 显示了如何在HR模式中查看EMPLOYEES表的属性。
+
+***Example 2-3 使用SQL\*Plus查看EMPLOYEES表属性***
 ```
 DESCRIBE EMPLOYEES
 ```
-Result:
+结果:
 ```
  Name                                      Null?    Type
  ----------------------------------------- -------- -------------
@@ -447,9 +451,9 @@ Result:
  MANAGER_ID                                         NUMBER(6)
  DEPARTMENT_ID                                      NUMBER(4)
 ```
-[Example 2-4](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4__CEGBDFHB) shows how to view some data in the EMPLOYEES table in the HR schema.
+[Example 2-4](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-65EB3CC5-9383-4EF2-AE20-884F5CB24EA4__CEGBDFHB) 显示了如何在HR模式中查看EMPLOYEES表中的某些数据。
 
-***Example 2-4 Viewing EMPLOYEES Table Data with SQL\*Plus***
+***Example 2-4 使用SQL\*Plus查看EMPLOYEES表数据***
 ```
 COLUMN FIRST_NAME FORMAT A20
 COLUMN LAST_NAME FORMAT A25
@@ -458,7 +462,7 @@ COLUMN PHONE_NUMBER FORMAT A20
 SELECT LAST_NAME, FIRST_NAME, PHONE_NUMBER FROM EMPLOYEES
 ORDER BY LAST_NAME;
 ```
-Result is similar to:
+结果类似于:
 ```
 LAST_NAME                 FIRST_NAME           PHONE_NUMBER
 ------------------------- -------------------- --------------------
@@ -482,82 +486,82 @@ Zlotkey                   Eleni                011.44.1344.429018
  
 107 rows selected.
 ```
-**See Also:**
+**也可以看看:**
 
-*[SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG040)* for information about *DESCRIBE*
+*[SQL\*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG040)* 有关*DESCRIBE*的信息
 
-"[Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)" for information about using queries to view table data
+"[Selecting Table Data](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-ECC91F84-8E75-42B9-B733-5CBE4D5717FD)" 有关使用查询查看表数据的信息
 
-*[Oracle Database Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=REFRN002)* for information about static data dictionary views
+*[Oracle Database Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=REFRN002)* 有关静态数据字典视图的信息
 
-## 2.5 Exploring Oracle Database with SQL Developer
-If you are connected to Oracle Database from SQL Developer as the user HR, you can view HR schema objects and the properties of the EMPLOYEES table.
+## 2.5 使用SQL Developer探索Oracle数据库
+如果从SQL Developer以用户HR身份连接到Oracle数据库，则可以查看HR模式对象和EMPLOYEES表的属性。
 
 [Tutorial: Viewing HR Schema Objects with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-C5118FEB-8476-4CA2-A1D5-81ACFFCD1927)  
-This tutorial shows how to use SQL Developer to view the objects that belong to the HR schema—that is, how to **browse** the HR schema.
+本教程介绍如何使用SQL Developer查看属于HR模式的对象，即如何**浏览**HR模式。
 
 [Tutorial: Viewing EMPLOYEES Table Properties and Data with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-D1FFB912-EDC5-4DE0-BABC-902207A2F04C)  
-This tutorial shows how to use SQL Developer to view the properties and data of the EMPLOYEES table in the HR schema.
+本教程介绍如何使用SQL Developer查看HR模式中EMPLOYEES表的属性和数据。
 
-### 2.5.1 Tutorial: Viewing HR Schema Objects with SQL Developer
-This tutorial shows how to use SQL Developer to view the objects that belong to the HR schema—that is, how to **browse** the HR schema.
+### 2.5.1 教程：使用SQL Developer查看HR模式对象
+本教程介绍如何使用SQL Developer查看属于HR模式的对象，即如何**浏览**HR模式。
 
-> Note:
+> 说明:
 >
-> If you are not connected to Oracle Database as user HR from SQL Developer, see "[Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)" and then return to this tutorial.
+> 如果您未从SQL Developer以用户HR身份连接到Oracle数据库，请参阅 "[Connecting to Oracle Database as User HR from SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA)" 然后回到本教程。
 
-**To browse the HR schema:**
+**浏览HR模式:**
 
-1. In the Connections frame, to the left of the hr_conn icon, click the **plus sign (+)**.
+1. 在Connections框架中，在hr_conn图标的左侧，单击 **加号 (+)**.
 
-    If you are not connected to the database, the Connection Information window opens. If you are connected to the database, the hr_conn information expands (see the information that follows "Click OK" in step 2).
+    如果未连接到数据库，则会打开“连接信息”窗口。 如果已连接到数据库，则会展开hr_conn信息（请参阅步骤2中“单击确定”后面的信息）.
 
-2. If the Connection Information window opens:
+2. 如果“连接信息”窗口打开:
 
-    a. In the User Name field, enter hr.
+    a. 在“用户名”字段中，输入hr.
 
-    b. In the Password field, enter the password for the user HR.
+    b. 在“密码”字段中，输入用户HR的密码.
 
-    c. Click **OK**.
+    c. 单击 **确定**.
 
-The hr_conn information expands: The plus sign becomes a minus sign (-), and under the hr_conn icon, a list of schema object types appears—Tables, Views, Indexes, and so on. (If you click the minus sign, the hr_conn information collapses: The minus sign becomes a plus sign, and the list disappears.)
+hr_conn信息展开：加号变为减号（ - ），在hr_conn图标下，将显示模式对象类型列表 - 表，视图，索引等。 （如果单击减号，hr_conn信息将折叠：减号将成为加号，列表将消失。）
 
-**See Also:**
+**也可以看看:**
 
-*[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10200)* for more information about the SQL Developer user interface
+*[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10200)* 有关SQL Developer用户界面的更多信息
 
-"[About Sample Schema HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-F55D4815-FCD8-4075-AEBC-BC2B57A47F9E)" for general information about schema HR
+"[About Sample Schema HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/two-day-developer-intro.html#GUID-F55D4815-FCD8-4075-AEBC-BC2B57A47F9E)" 有关模式HR的简要信息
 
-### 2.5.2 Tutorial: Viewing EMPLOYEES Table Properties and Data with SQL Developer
+### 2.5.2 教程：使用SQL Developer查看EMPLOYEES表属性和数据
 
-This tutorial shows how to use SQL Developer to view the properties and data of the EMPLOYEES table in the HR schema.
+本教程介绍如何使用SQL Developer查看HR模式中EMPLOYEES表的属性和数据。
 
-> Note:
+> 说明:
 > 
-> If you are not browsing the HR schema, see "[Tutorial: Viewing HR Schema Objects with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-C5118FEB-8476-4CA2-A1D5-81ACFFCD1927)" and then return to this tutorial.
+> 如果您没有浏览HR模式，请参阅 "[Tutorial: Viewing HR Schema Objects with SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-C5118FEB-8476-4CA2-A1D5-81ACFFCD1927)" 然后回到本教程。
 
-**To view the properties and data of the EMPLOYEES table:**
+**查看EMPLOYEES表的属性和数据:**
 
-1. In the Connections frame, expand **Tables**.
+1. 在Connections视窗中，展开**Tables**.
    
-    Under Tables, a list of the tables in the HR schema appears.
+    在Tables下，将显示HR模式中的表列表。
 
-2. Select the table **EMPLOYEES**.
+2. 选择表**EMPLOYEES**.
 
-    In the right frame of the Oracle SQL Developer window, in the Columns pane, a list of all columns of this table appears. To the right of each column are its properties—name, data type, and so on. (To see all column properties, move the horizontal scroll bar to the right.)
+    在Oracle SQL Developer窗口的右侧框架的“列”窗格中，将显示该表的所有列的列表。 每列的右侧是其属性名称，数据类型等。 （要查看所有列属性，请将水平滚动条向右移动。）
 
-3. In the right frame, click the tab **Data**.
+3. 在右侧视窗中，单击选项卡**数据**.
    
-    The Data pane appears, showing a numbered list of all records in this table. (To see more records, move the vertical scroll bar down. To see more columns of the records, move the horizontal scroll bar to the right.)
+    将出现“数据”窗格，其中显示此表中所有记录的编号列表。 （要查看更多记录，请向下移动垂直滚动条。要查看更多记录列，请将水平滚动条向右移动。）
 
-4. In the right frame, click the tab **Constraints**.
+4. 在右侧视窗中，单击选项卡**约束**.
    
-    The Constraints pane appears, showing a list of all constraints on this table. To the right of each constraint are its properties—name, type, search condition, and so on. (To see all constraint properties, move the horizontal scroll bar to the right.)
+    将出现“约束”窗格，其中显示了此表上所有约束的列表。 每个约束的右侧是其属性名称，类型，搜索条件等。 （要查看所有约束属性，请将水平滚动条向右移动。）
 
-5. Explore the other properties by clicking on the appropriate tabs.
+5. 单击相应的选项卡，浏览其他属性.
     
-    To see the SQL statement for creating the EMPLOYEES table, click the **SQL** tab. The SQL statement appears in a pane named EMPLOYEES. To close this pane, click the **x** to the right of the name EMPLOYEES.
+    要查看用于创建EMPLOYEES表的SQL语句，请单击**SQL**选项卡。 SQL语句显示在名为EMPLOYEES的窗格中。 要关闭此窗格，请单击名称EMPLOYEES右侧的**x**。
 
-**See Also:**
+**也可以看看:**
 
-Oracle SQL Developer User's Guide for more information about the SQL Developer user interface
+*[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10200)* 有关SQL Developer用户界面的更多信息
