@@ -794,7 +794,7 @@ NLS_TIMESTAMP_TZ_FORMAT='YYYY-MM-DD HH:MI:SS.FF TZH:TZM'
 
 **默认值:** Gregorian
 
-[Example 7-6](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-A49E60C9-0904-4346-8CB8-6AC25091A10F__CACICBFC) 显示如何将**NLS_CALENDAR**设置为“English Hijrah”和Gregorian会影响显示的系统日期。
+[Example 7-6](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-A49E60C9-0904-4346-8CB8-6AC25091A10F__CACICBFC) 显示如何将**NLS_CALENDAR**设置为“English Hijrah”和Gregorian并影响显示的系统日期。
 
 要在SQL Developer中尝试此示例，请在工作表中输入语句和查询。 有关工作表的信息，请参阅“[Running Queries in SQL Developer](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B16A89C8-5FFA-4254-96CB-0BCE9CF39651)”。 这里显示的结果来自SQL\*Plus; 它们的格式在SQL Developer中略有不同。
 
@@ -1303,12 +1303,12 @@ CREATE TABLE SEMANTICS_CHAR(SOME_DATA VARCHAR2(20));
 - "[Changing NLS Parameter Values](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-A7206047-9B84-4448-9828-8F0FA9725793)"
 
 ## 7.6 在全球化应用程序中使用Unicode
-您可以插入和检索Unicode数据。 数据在数据库和客户端程序之间透明转换，确保客户端程序独立于数据库字符集和国家字符集。  
-[Representing Unicode String Literals in SQL and PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-D472628F-DC15-4E12-9475-84C2EAEEF593)
+您可以插入和检索Unicode数据。 数据在数据库和客户端程序之间透明转换，确保客户端程序独立于数据库字符集和国家字符集。
 
-在SQL或PL / SQL中有三种表示Unicode字符串文字的方法。  
-[Avoiding Data Loss During Character-Set Conversion](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-AB7D2EBA-2380-4046-B514-831308A2AECF)
+[Representing Unicode String Literals in SQL and PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-D472628F-DC15-4E12-9475-84C2EAEEF593)  
+在SQL或PL / SQL中有三种表示Unicode字符串文字的方法。
 
+[Avoiding Data Loss During Character-Set Conversion](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-AB7D2EBA-2380-4046-B514-831308A2AECF)  
 作为SQL或PL / SQL语句的一部分，文字（带或不带前缀**N**）编码在与语句其余部分相同的字符集中。 在客户端，语句在客户端字符集中编码，该字符集由**NLS_LANG**参数确定。 在服务器端，语句以数据库字符集编码。
 
 **也可以看看:**
