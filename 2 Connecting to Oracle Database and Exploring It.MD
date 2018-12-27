@@ -565,3 +565,1120 @@ hr_conn信息展开：加号变为减号（ - ），在hr_conn图标下，将显
 **也可以看看:**
 
 *[Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10200)* 有关SQL Developer用户界面的更多信息
+
+<!-- https://tool.lu/markdown/ -->
+## 2.6 选择表数据
+
+注意：
+
+要执行本节中的教程和示例，您必须以SQL Developer中的用户HR身份连接到Oracle数据库。 有关说明，请参阅“ [从SQL Developer连接到Oracle数据库作为用户HR](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-872A147C-19D2-4782-AFA4-9987E7AE66BA "您可以使用SQL Developer以HR用户身份连接到Oracle数据库。") ” 。
+
+*   [关于查询](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-A6EC754C-D820-43EC-8509-DD7CF663FD03)  
+    **查询**或SQL SELECT语句从一个或多个表或视图中选择数据。
+*   [在SQL Developer中运行查询](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B16A89C8-5FFA-4254-96CB-0BCE9CF39651)  
+    本节介绍如何使用Worksheet在SQL Developer中运行查询。
+*   [教程：选择表的所有列](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-A1D0A59B-3DD6-4678-A6ED-7DDAD1B6BC6A)  
+    本教程介绍如何选择EMPLOYEES表的所有列。
+*   [教程：选择表的特定列](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-62692CDF-8E8B-4B91-A577-CE3D484A718E)  
+    本教程介绍如何仅选择EMPLOYEES表的FIRST\_NAME，LAST\_NAME和DEPARTMENT_ID列。
+*   [在新标题下显示选定的列](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-68201783-B6A2-4860-B0D0-25D8ADCDA487)  
+    在显示的查询结果中，默认列标题是列名称。 要在新标题下显示列，请在列名称后面指定新标题（ **别名** ）。别名在查询期间重命名列，但不会在数据库中更改其名称。
+*   [选择满足指定条件的数据](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-374D905A-3DE0-46F3-8525-A647E65DE8DF)  
+    要仅选择与指定条件匹配的数据，请在SELECT语句中包含WHERE子句。
+*   [对所选数据进行排序](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-584DB914-BB6D-46CF-B7D6-3EB3E94723F1)  
+    显示查询结果时，记录可以按任何顺序排列，除非您使用ORDER BY子句指定其顺序。
+*   [从多个表中选择数据](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-5EC90E59-F2CF-42D0-AF74-943062278E23)  
+    要从多个表中选择数据，请使用称为**连接**的查询。联接中的表必须至少共享一个列名。
+*   [在查询中使用运算符和函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3E045FD9-CEA9-4BF5-B4F5-33085E1BC085)  
+    查询的select_list可以包括SQL表达式，它可以包括SQL运算符和SQL函数。 这些运算符和函数可以将表数据作为操作数和参数。将评估SQL表达式，并将其值显示在查询结果中。
+
+### 2.6.1关于查询
+
+**查询**或SQL SELECT语句从一个或多个表或视图中选择数据。
+
+最简单的查询形式具有以下语法：
+
+ SELECT select_list FROM source_list
+
+select_list指定从中选择数据的列，source_list指定具有这些列的表或视图。
+
+嵌套在另一个SQL语句中的**查询**称为**子查询** 。
+
+在SQL * Plus环境中，您可以在SQL>提示符后输入查询（或任何其他SQL语句）。
+
+在SQL Developer环境中，您可以在Worksheet中输入查询（或任何其他SQL语句）。
+
+注意：
+
+显示查询结果时，记录可以按任何顺序排列，除非您使用ORDER BY子句指定其顺序。 有关更多信息，请参阅“ [对所选数据进行排序](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-584DB914-BB6D-46CF-B7D6-3EB3E94723F1 "显示查询结果时，记录可以按任何顺序排列，除非您使用ORDER BY子句指定其顺序。") ” 。
+
+也可以看看：
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF007&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgcBicJ35WfApAfwp9FOQk6tvGBgw) 有关查询和子查询的更多信息，请[参见Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF007&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgcBicJ35WfApAfwp9FOQk6tvGBgw)
+    
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF01702&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgxN_xrhZ30vJq65SgqMmPuoxAvNA) 有关SELECT语句的更多信息，请[参见Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF01702&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgxN_xrhZ30vJq65SgqMmPuoxAvNA)
+    
+*   [SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQPUG008&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhK-R9wpjFvfXgwCqx7elzSBRPZtg)  [SQL * Plus用户指南和参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQPUG008&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhK-R9wpjFvfXgwCqx7elzSBRPZtg)有关SQL * Plus命令行界面的更多信息
+    
+*   [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) ，了解有关在SQL Developer中使用Worksheet的信息
+    
+
+### 2.6.2在SQL Developer中运行查询
+
+本节介绍如何使用Worksheet在SQL Developer中运行查询。
+
+注意：
+
+工作表不仅限于查询; 您可以使用它来运行任何SQL语句。
+
+在SQL Developer中运行查询：
+
+1.  如果SQL Developer的右框显示hr_conn窗格：
+    
+    1.  如果未显示Worksheet子窗格，请单击选项卡工作表 。
+        
+    2.  转到第[4](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B16A89C8-5FFA-4254-96CB-0BCE9CF39651__CEGIAJHJ)步。
+        
+2.  单击图标SQL Worksheet 。
+    
+3.  如果“ 选择连接”窗口打开：
+    
+    1.  如果“ 连接”字段没有值`hr_conn` ，请从菜单中选择该值。
+        
+    2.  单击确定 。
+        
+    
+    将出现一个窗格，其中包含标记为hr_conn的选项卡和两个子窗格，即Worksheet和Query Builder 。 在工作表中 ，您可以输入SQL语句。
+    
+4.  在工作表中 ，键入查询（ SELECT语句）。
+    
+5.  单击图标Run Statement 。
+    
+    查询运行。 在工作表下 ，将出现“ 查询结果”窗格，显示查询结果。
+    
+6.  在hr_conn选项卡下，单击图标Clear 。
+    
+    查询消失，您可以在工作表中输入另一个SQL语句。 运行另一个SQL语句时，其结果将显示在“ 查询结果”窗格中，替换以前运行的SQL语句的结果。
+    
+也可以看看：
+
+ [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) ，了解有关在SQL Developer中使用Worksheet的信息
+
+### 2.6.3教程：选择表的所有列
+
+本教程介绍如何选择EMPLOYEES表的所有列。
+
+要选择EMPLOYEES表的所有列：
+
+1.  如果存在带有选项卡hr_conn的窗格，请选择它。 否则，单击图标SQL Worksheet ，如“ [在SQL Developer中运行查询](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B16A89C8-5FFA-4254-96CB-0BCE9CF39651 "本节介绍如何使用Worksheet在SQL Developer中运行查询。") ”中所示 。
+2.  在工作表中 ，输入以下查询：
+    
+    SELECT * FROM EMPLOYEES;
+    
+3.  单击图标Run Statement 。
+    
+    查询运行。 在“ 工作表”下 ，将显示“ 查询结果”窗格，其中显示了EMPLOYEES表的所有列。
+    
+
+警告：
+
+在包含存储敏感数据的列（例如密码或信用卡信息）的表上使用SELECT *时要非常小心。
+
+也可以看看：
+
+“ [教程：使用SQL Developer查看EMPLOYEES表属性和数据](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-D1FFB912-EDC5-4DE0-BABC-902207A2F04C "本教程介绍如何使用SQL Developer查看HR模式中EMPLOYEES表的属性和数据。") ” ，了解有关使用SQL Developer查看表数据的另一种方法的信息
+
+### 2.6.4 Tutorial: Selecting Specific Columns of a Table
+
+本教程介绍如何仅选择EMPLOYEES表的FIRST\_NAME，LAST\_NAME和DEPARTMENT_ID列。
+
+要仅选择FIRST\_NAME，LAST\_NAME和DEPARTMENT_ID：
+
+1.  如果存在带有选项卡hr_conn的窗格，请选择它。 否则，单击图标SQL Worksheet ，如“ [在SQL Developer中运行查询](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B16A89C8-5FFA-4254-96CB-0BCE9CF39651 "本节介绍如何使用Worksheet在SQL Developer中运行查询。") ”中所示 。
+2.  如果“ 工作表”窗格包含查询，请单击“ 清除 ”图标清除查询。
+3.  在工作表中 ，输入以下查询：
+    
+    SELECT FIRST_NAME, LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES;
+    
+4.  单击图标Run Statement 。
+    
+    查询运行。 在工作表下 ，将出现“ 查询结果”窗格，显示查询结果 ，类似于：
+    ```
+    FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+    -------------------- ------------------------- -------------
+    Donald               OConnell                             50
+    Douglas              Grant                                50
+    Jennifer             Whalen                               10
+    Michael              Hartstein                            20
+    Pat                  Fay                                  20
+    Susan                Mavris                               40
+    Hermann              Baer                                 70
+    Shelley              Higgins                             110
+    William              Gietz                               110
+    Steven               King                                 90
+    Neena                Kochhar                              90
+     
+    FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+    -------------------- ------------------------- -------------
+    Lex                  De Haan                              90
+    ...
+    Kevin                Feeney                               50
+     
+    107 rows selected.
+    ```
+
+###  2.6.5在新标题下显示所选列
+
+在显示的查询结果中，默认列标题是列名称。 要在新标题下显示列，请在列名称后面指定新标题（ **别名** ）。 别名在查询期间重命名列，但不会在数据库中更改其名称。
+
+ [示例2-5](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-68201783-B6A2-4860-B0D0-25D8ADCDA487__CEGJADAB)中的查询选择与“ [教程：选择表的特定列](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-62692CDF-8E8B-4B91-A577-CE3D484A718E "This tutorial shows how to select only the columns FIRST_NAME, LAST_NAME, and DEPARTMENT_ID of the EMPLOYEES table.") ”中的查询相同的列，但它也为它们指定了别名。 由于别名未用双引号括起来，因此它们以大写字母显示。
+
+如果将列别名括在双引号中，则保留大小写，并且别名可以包含空格，如[示例2-6](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-68201783-B6A2-4860-B0D0-25D8ADCDA487__CEGBBEGD)所示。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF01702) 有关 SELECT语句的更多信息，包括列别名（ c_alias）
+
+示例2-5 在新标题下显示所选列
+```
+SELECT FIRST_NAME First, LAST_NAME last, DEPARTMENT_ID DepT
+FROM EMPLOYEES;
+```
+结果类似于：
+```
+FIRST                LAST                            DEPT
+-------------------- ------------------------- ----------
+Donald               OConnell                          50
+Douglas              Grant                             50
+Jennifer             Whalen                            10
+Michael              Hartstein                         20
+Pat                  Fay                               20
+Susan                Mavris                            40
+Hermann              Baer                              70
+Shelley              Higgins                          110
+William              Gietz                            110
+Steven               King                              90
+Neena                Kochhar                           90
+ 
+FIRST                LAST                            DEPT
+-------------------- ------------------------- ----------
+Lex                  De Haan                           90
+...
+Kevin                Feeney                            50
+ 
+107 rows selected.
+```
+示例2-6 在列别名中保留大小写和包含空格
+```
+SELECT FIRST_NAME "Given Name", LAST_NAME "Family Name"
+FROM EMPLOYEES;
+```
+结果类似于：
+```
+Given Name           Family Name
+-------------------- -------------------------
+Donald               OConnell
+Douglas              Grant
+Jennifer             Whalen
+Michael              Hartstein
+Pat                  Fay
+Susan                Mavris
+Hermann              Baer
+Shelley              Higgins
+William              Gietz
+Steven               King
+Neena                Kochhar
+ 
+Given Name           Family Name
+-------------------- -------------------------
+Lex                  De Haan
+...
+Kevin                Feeney
+ 
+107 rows selected.
+```
+### 2.6.6 选择满足特定条件的数据
+
+要仅选择与指定条件匹配的数据，请在SELECT语句中包含WHERE子句。
+
+WHERE子句中的条件可以是任何SQL条件（有关SQL条件的信息，请参阅[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF005)）。
+
+[示例2-7](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-374D905A-3DE0-46F3-8525-A647E65DE8DF__CEGGJDHI)中的查询仅为部门90中的员工选择数据。
+
+要仅为部门100,110和120中的员工选择数据，请使用此WHERE子句：
+```
+WHERE DEPARTMENT_ID IN (100, 110, 120);
+```
+[示例2-8](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-374D905A-3DE0-46F3-8525-A647E65DE8DF__CEGBCCIE)中的查询仅为姓氏以“Ma”开头的员工选择数据。
+
+要仅为姓氏包含“ma”的员工选择数据，请使用此WHERE子句：
+```
+WHERE LAST_NAME LIKE '%ma%';
+```
+
+[示例2-9](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-374D905A-3DE0-46F3-8525-A647E65DE8DF__CEGGGHGF)中的查询测试两个条件 \- 工资是否至少为11000，以及佣金百分比是否为空。
+
+**也可以看看:**
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF01702) 有关 SELECT语句的更多信息，包括 WHERE子句
+    
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF005) 有关SQL条件的详细信息
+    
+
+示例2-7 从一个部门选择数据
+```
+SELECT FIRST_NAME, LAST_NAME, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 90;
+```
+结果类似于：
+```
+FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+-------------------- ------------------------- -------------
+Steven               King                                 90
+Neena                Kochhar                              90
+Lex                  De Haan                              90
+
+3 rows selected.
+```
+示例2-8 选择以相同子字符串开头的姓氏的数据
+```
+SELECT FIRST_NAME, LAST_NAME
+FROM EMPLOYEES
+WHERE LAST_NAME LIKE 'Ma%';
+```
+结果类似于：
+```
+FIRST_NAME           LAST_NAME
+-------------------- -------------------------
+Jason                Mallin
+Steven               Markle
+James                Marlow
+Mattea               Marvins
+Randall              Matos
+Susan                Mavris
+ 
+6 rows selected.
+```
+示例2-9 选择满足两个条件的数据
+```
+SELECT FIRST_NAME, LAST_NAME, SALARY, COMMISSION_PCT "%"
+FROM EMPLOYEES
+WHERE (SALARY >= 11000) AND (COMMISSION_PCT IS NOT NULL);
+```
+结果类似于：
+```
+FIRST_NAME           LAST_NAME                     SALARY          %
+-------------------- ------------------------- ---------- ----------
+John                 Russell                        14000         .4
+Karen                Partners                       13500         .3
+Alberto              Errazuriz                      12000         .3
+Gerald               Cambrault                      11000         .3
+Lisa                 Ozer                           11500        .25
+Ellen                Abel                           11000         .3
+ 
+6 rows selected.
+```
+### 2.6.7 对所选数据进行排序
+
+显示查询结果时，记录可以按任何顺序排列，除非您使用ORDER BY子句指定其顺序。
+
+[示例2-10](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-584DB914-BB6D-46CF-B7D6-3EB3E94723F1__CEGCEDFB)中的查询结果按`LAST_NAME`升序（默认值）排序。
+
+或者，在SQL Developer中，可以省略ORDER BY子句并双击要排序的列的名称。
+
+排序标准不必包含在选择列表中，如[例2-11](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-584DB914-BB6D-46CF-B7D6-3EB3E94723F1__CEGEGADJ)所示。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF01702) 有关 SELECT语句的更多信息，包括 ORDER BY子句
+
+示例2-10 按LAST_NAME对所选数据进行排序
+```
+SELECT FIRST_NAME, LAST_NAME, HIRE_DATE
+FROM EMPLOYEES
+ORDER BY LAST_NAME;
+```
+结果:
+```
+FIRST_NAME           LAST_NAME                 HIRE_DATE
+-------------------- ------------------------- ---------
+Ellen                Abel                      11-MAY-04
+Sundar               Ande                      24-MAR-08
+Mozhe                Atkinson                  30-OCT-05
+David                Austin                    25-JUN-05
+Hermann              Baer                      07-JUN-02
+Shelli               Baida                     24-DEC-05
+Amit                 Banda                     21-APR-08
+Elizabeth            Bates                     24-MAR-07
+...
+FIRST_NAME           LAST_NAME                 HIRE_DATE
+-------------------- ------------------------- ---------
+Jose Manuel          Urman                     07-MAR-06
+Peter                Vargas                    09-JUL-06
+Clara                Vishney                   11-NOV-05
+Shanta               Vollman                   10-OCT-05
+Alana                Walsh                     24-APR-06
+Matthew              Weiss                     18-JUL-04
+Jennifer             Whalen                    17-SEP-03
+Eleni                Zlotkey                   29-JAN-08
+
+107 rows selected
+```
+示例2-11 按未选择的列对选定数据进行排序
+```
+SELECT FIRST_NAME, HIRE_DATE
+FROM EMPLOYEES
+ORDER BY LAST_NAME;
+```
+结果:
+```
+FIRST_NAME           HIRE_DATE
+-------------------- ---------
+Ellen                11-MAY-04
+Sundar               24-MAR-08
+Mozhe                30-OCT-05
+David                25-JUN-05
+Hermann              07-JUN-02
+Shelli               24-DEC-05
+Amit                 21-APR-08
+Elizabeth            24-MAR-07
+...
+FIRST_NAME           HIRE_DATE
+-------------------- ---------
+Jose Manuel          07-MAR-06
+Peter                09-JUL-06
+Clara                11-NOV-05
+Shanta               10-OCT-05
+Alana                24-APR-06
+Matthew              18-JUL-04
+Jennifer             17-SEP-03
+Eleni                29-JAN-08
+ 
+107 rows selected.
+```
+### 2.6.8 从多个表中选择数据
+
+要从多个表中选择数据，请使用称为**连接**的查询。联接中的表必须至少共享一个列名。
+
+假设您要选择每位员工的FIRST\_NAME，LAST\_NAME和DEPARTMENT_NAME。FIRST\_NAME和LAST\_NAME位于EMPLOYEES表格中，DEPARTMENT_NAME位于DEPARTMENTS表格中。两个表都有DEPARTMENT_ID。您可以使用[示例2-12](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-5EC90E59-F2CF-42D0-AF74-943062278E23__CEGBJFFJ)中的查询。
+
+对于仅出现在连接的一个表中的列名，表名限定符是可选的，但对于出现在两个表中的列名称都是必需的。以下查询等效于[示例2-12](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-5EC90E59-F2CF-42D0-AF74-943062278E23__CEGBJFFJ)中的查询：
+```
+SELECT FIRST_NAME "First",
+LAST_NAME "Last",
+DEPARTMENT_NAME "Dept. Name"
+FROM EMPLOYEES, DEPARTMENTS
+WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+ORDER BY DEPARTMENT_NAME, LAST_NAME;
+```
+要使使用限定列名的查询更具可读性，请使用表别名，如以下示例所示：
+```
+SELECT FIRST_NAME "First",
+LAST_NAME "Last",
+DEPARTMENT_NAME "Dept. Name"
+FROM EMPLOYEES e, DEPARTMENTS d
+WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID
+ORDER BY d.DEPARTMENT_NAME, e.LAST_NAME;
+```
+虽然您在FROM子句中创建了别名，但您可以在查询的前面使用它们，如下例所示：
+```
+SELECT e.FIRST_NAME "First",
+e.LAST_NAME "Last",
+d.DEPARTMENT_NAME "Dept. Name"
+FROM EMPLOYEES e, DEPARTMENTS d
+WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID
+ORDER BY d.DEPARTMENT_NAME, e.LAST_NAME;
+```
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF30046) 有关联接的详细信息
+
+示例2-12 从两个表中选择数据（连接两个表）
+```
+SELECT EMPLOYEES.FIRST_NAME "First",
+EMPLOYEES.LAST_NAME "Last",
+DEPARTMENTS.DEPARTMENT_NAME "Dept. Name"
+FROM EMPLOYEES, DEPARTMENTS
+WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+ORDER BY DEPARTMENTS.DEPARTMENT_NAME, EMPLOYEES.LAST_NAME;
+```
+结果:
+```
+First                Last                      Dept. Name                       
+-------------------- ------------------------- ------------------------------   
+William              Gietz                     Accounting                       
+Shelley              Higgins                   Accounting                       
+Jennifer             Whalen                    Administration                   
+Lex                  De Haan                   Executive                        
+Steven               King                      Executive                        
+Neena                Kochhar                   Executive                        
+John                 Chen                      Finance                          
+...
+Jose Manuel          Urman                     Finance                          
+Susan                Mavris                    Human Resources                  
+David                Austin                    IT                               
+...
+Valli                Pataballa                 IT                               
+Pat                  Fay                       Marketing                        
+Michael              Hartstein                 Marketing                        
+Hermann              Baer                      Public Relations                 
+Shelli               Baida                     Purchasing                       
+...
+Sigal                Tobias                    Purchasing                       
+Ellen                Abel                      Sales                            
+...
+Eleni                Zlotkey                   Sales                            
+Mozhe                Atkinson                  Shipping                         
+...
+Matthew              Weiss                     Shipping                         
+ 
+106 rows selected.
+```
+### 2.6.9 在查询中使用运算符和函数
+
+查询的select_list可以包括SQL表达式，它可以包括SQL运算符和SQL函数。这些运算符和函数可以将表数据作为操作数和参数。将评估SQL表达式，并将其值显示在查询结果中。
+
+*   [在查询中使用算术运算符](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-75E0CFD9-3B69-45C4-A3D4-B4ED7FBA61AD)  
+    基本算术运算符 \- \+（加法）， \- （减法），\*（乘法）和/（除法） \- 对列值进行操作。
+*   [在查询中使用数字函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3DED1F6D-719B-41AB-9682-C43E95410E13)  
+    数字函数接受数字输入并返回数值。每个数字函数为每个计算的行返回一个值。
+*   [在查询中使用连接运算符](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-552A3DC5-AFB3-48F1-BED9-90D3650A5CE9)  
+    连接运算符（`||`）将两个字符串组合成一个字符串，方法是将第二个字符串附加到第一个字符串。例如，`'a'||'b'='ab'`。您可以使用此运算符组合查询结果的同一列中的两列或表达式的信息。
+*   [在查询中使用字符函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-1A5EC7DB-7501-4CC8-B550-516798B1F533)  
+    字符函数接受字符输入。大多数返回字符值，但有些返回数值。每个字符函数为每个计算的行返回一个值。
+*   [在查询中使用日期时间函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3243357D-48EC-4275-B770-20DA1E5469FD)  
+    日期时间函数在DATE，时间戳和间隔值上运行。每个日期时间函数为每个计算的行返回一个值。
+*   [在查询中使用转换函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-9E724355-6B45-46DC-A15B-59EBAC38E701)  
+    转换函数将一种数据类型转换为另一种数据。
+*   [在查询中使用聚合函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B8DF101D-1613-42F2-ABF5-AE67E00E3C2B)  
+    聚合函数采用一组行并返回单个结果行。行组可以是整个表或视图。
+*   [在查询中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-703425FD-82B2-400F-AA87-C48604CE89FF)  
+    使用与NULL相关的函数与NULL相关的函数有助于处理NULL值。
+*   [在查询中使用CASE表达式](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F)  
+    一个CASE表达式可让您使用IF ... THEN ... ELSE逻辑在SQL语句中不调用子程序。有两种CASE表达式，简单和搜索。
+*   [使用解码功能中查询](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-5DFAEBA9-C1E7-4AC5-942C-0DEC6C2A1EB1)  
+    该DECODE函数的表达式进行比较，以几个搜索值。只要表达式的值与搜索值匹配，DECODE就会返回与该搜索值关联的结果。如果DECODE找不到匹配项，则返回默认值（如果指定）或NULL（如果未指定默认值）。
+
+**也可以看看:**
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF003) 有关SQL运算符的详细信息
+    
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF006) 有关SQL函数的更多信息
+    
+
+#### 2.6.9.1 在查询中使用算术运算符
+
+基本算术运算符 \- \+（加法）， \- （减法），\*（乘法）和/（除法） \- 对列值进行操作。
+
+[示例2-13](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-75E0CFD9-3B69-45C4-A3D4-B4ED7FBA61AD__CEGJDCII)中的查询按照SALARY的降序显示部门90中每个员工的LAST_NAME，SALARY（月工资）和年薪。
+
+示例2-13在查询中使用算术表达式
+```
+SELECT LAST_NAME,
+SALARY "Monthly Pay",
+SALARY * 12 "Annual Pay"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 90
+ORDER BY SALARY DESC;
+```
+结果:
+```
+LAST_NAME                 Monthly Pay Annual Pay
+------------------------- ----------- ----------
+King                            24000     288000
+De Haan                         17000     204000
+Kochhar                         17000     204000
+```
+#### 2.6.9.2 在查询中使用数字函数
+
+数字函数接受数字输入并返回数值。每个数字函数为每个计算的行返回一个值。
+
+SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF20031&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhPpkZcFI5u268MjCuvUduBy5jV7g)中列出并描述了SQL支持的数字函数。
+
+[示例2-14](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3DED1F6D-719B-41AB-9682-C43E95410E13__CEGIACAA)中的查询使用数字函数`ROUND`显示部门100中每个员工的每日工资，四舍五入到最接近的分数。
+
+[示例2-15](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3DED1F6D-719B-41AB-9682-C43E95410E13__CEGDGGAB)中的查询使用数字函数`TRUNC`显示部门100中每个员工的每日工资，截断为最接近的美元。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20031) 有关SQL数字函数的详细信息
+
+示例2-14 舍入数字数据
+```
+SELECT LAST_NAME,
+ROUND (((SALARY * 12)/365), 2) "Daily Pay"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY LAST_NAME;
+```
+结果:
+```
+LAST_NAME                  Daily Pay
+------------------------- ----------
+Chen                          269.59
+Faviet                        295.89
+Greenberg                     394.52
+Popp                          226.85
+Sciarra                       253.15
+Urman                         256.44
+ 
+6 rows selected.
+```
+示例2-15 截断数字数据
+```
+SELECT LAST_NAME,
+TRUNC ((SALARY * 12)/365) "Daily Pay"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY LAST_NAME;
+```
+结果:
+```
+LAST_NAME                  Daily Pay
+------------------------- ----------
+Chen                             269
+Faviet                           295
+Greenberg                        394
+Popp                             226
+Sciarra                          253
+Urman                            256
+ 
+6 rows selected.
+```
+#### 2.6.9.3 在查询中使用连接运算符
+
+连接运算符（`||`）通过将第二个字符串附加到第一个字符串，将两个字符串组合成一个字符串。例如，`'a'||'b'='ab'`。您可以使用此运算符组合查询结果的同一列中的两列或表达式的信息。
+
+[示例2-16](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-552A3DC5-AFB3-48F1-BED9-90D3650A5CE9__CEGIHCBE)中的查询连接了每个所选员工的名字，空格和姓氏。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF51158) for more information about the concatenation operator
+
+示例2-16 连接字符数据
+```
+SELECT FIRST_NAME || ' ' || LAST_NAME "Name"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY LAST_NAME;
+```
+结果:
+```
+Name
+---------------------------------------------
+John Chen
+Daniel Faviet
+Nancy Greenberg
+Luis Popp
+Ismael Sciarra
+Jose Manuel Urman
+ 
+6 rows selected.
+```
+#### 2.6.9.4 在查询中使用字符函数
+
+字符函数接受字符输入。大多数返回字符值，但有些返回数值。每个字符函数为每个计算的行返回一个值。
+
+SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20032)中列出并描述了SQL支持的字符函数。
+
+功能UPPER，INITCAP和LOWER显示用大写，初始资本和小写，其分别字符的参数。
+
+[示例2-17](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-1A5EC7DB-7501-4CC8-B550-516798B1F533__CEGGAAFJ)中的查询以大写形式显示LAST\_NAME，FIRST\_NAME的第一个字符为大写，其他所有字符均为小写，EMAIL为小写。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20032) 有关SQL字符函数的详细信息
+
+示例2-17 更改字符数据的大小写
+```
+SELECT UPPER(LAST_NAME) "Last",
+INITCAP(FIRST_NAME) "First",
+LOWER(EMAIL) "E-Mail"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY EMAIL;
+```
+结果:
+```
+Last                      First                E-Mail
+------------------------- -------------------- -------------------------
+FAVIET                    Daniel               dfaviet
+SCIARRA                   Ismael               isciarra
+CHEN                      John                 jchen
+URMAN                     Jose Manuel          jmurman
+POPP                      Luis                 lpopp
+GREENBERG                 Nancy                ngreenbe
+ 
+6 rows selected.
+```
+#### 2.6.9.5 在查询中使用日期时间函数
+
+日期时间功能在日期，时间戳和间隔值上运行。每个日期时间函数为每个计算的行返回一个值。
+
+SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20033)中列出并描述了SQL支持的日期时间函数。
+
+对于每个DATE和时间戳值，Oracle数据库存储以下信息：
+
+*   Year
+    
+*   Month
+    
+*   Date
+    
+*   Hour
+    
+*   Minute
+    
+*   Second
+    
+    对于每个时间戳值，Oracle数据库还存储第二个小数部分，您可以指定其精度。要同时存储时区，请使用数据类型TIMESTAMP WITH TIME ZONE或TIMESTAMP WITH LOCAL TIME ZONE。
+    
+有关DATE数据类型的更多信息，请参见[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00202)。
+
+有关TIMESTAMP数据类型的更多信息，请参见[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00203)。
+
+有关其他时间戳数据类型和间隔数据类型的信息，请参阅[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00200)。
+
+[示例2-18](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3243357D-48EC-4275-B770-20DA1E5469FD__CEGBCDFJ)中的查询使用EXTRACT和SYSDATE函数来显示部门100中每个员工的工作年限。的SYSDATE函数返回系统时钟作为当前的日期DATE值。有关SYSDATE函数的更多信息，请参见[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF06124)。有关EXTRACT函数的信息，请参见[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00639)。
+
+[示例2-19](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3243357D-48EC-4275-B770-20DA1E5469FD__CEGEHDBB)中的查询使用SYSTIMESTAMP函数显示当前系统日期和时间。该SYSTIMESTAMP函数返回一个TIMESTAMP值。有关SYSTIMESTAMP函数的信息，请参见[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF06125)。
+
+查询的FROM子句中的表DUAL是Oracle数据库与数据字典一起自动创建的单行表。如果要使用SELECT语句计算常量表达式，请从DUAL中选择。因为DUAL只有一行，所以常量只返回一次。有关从DUAL中选择的更多信息，请参阅[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20036)。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20033) 有关SQL datetime函数的详细信息
+
+示例2-18 显示日期之间的年数
+```
+SELECT LAST_NAME,
+(EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM HIRE_DATE)) "Years Employed"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY "Years Employed";
+```
+结果:
+```
+LAST_NAME                 Years Employed
+------------------------- --------------
+Popp                                   5
+Urman                                  6
+Chen                                   7
+Sciarra                                7
+Greenberg                             10
+Faviet                                10
+ 
+6 rows selected.
+```
+示例2-19 显示系统日期和时间
+```
+SELECT EXTRACT(HOUR FROM SYSTIMESTAMP) || ':' ||
+EXTRACT(MINUTE FROM SYSTIMESTAMP) || ':' ||
+ROUND(EXTRACT(SECOND FROM SYSTIMESTAMP), 0) || ', ' ||
+EXTRACT(MONTH FROM SYSTIMESTAMP) || '/' ||
+EXTRACT(DAY FROM SYSTIMESTAMP) || '/' ||
+EXTRACT(YEAR FROM SYSTIMESTAMP) "System Time and Date"
+FROM DUAL;
+```
+结果取决于当前的SYSTIMESTAMP值，但具有以下格式：
+```
+System Time and Date
+------------------------------------------------------------------
+18:17:53, 12/27/2012
+```
+#### 2.6.9.6 在查询中使用转换函数
+
+转换函数将一种数据类型转换为另一种。
+
+SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20034)中列出并描述了SQL支持的转换函数。
+
+[示例2-20](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-9E724355-6B45-46DC-A15B-59EBAC38E701__CEGCBBCI)中的查询使用TO_CHAR函数将HIRE_DATE值（类型为DATE）转换为具有该格式的字符值`FMMonth DD YYYY`。`FM`从月份名称中删除前导空格和尾随空格。`FMMonth DD YYYY`是**日期时间格式模型**的示例。有关日期时间格式模型的信息，请参阅[Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00212)。
+
+[示例2-21](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-9E724355-6B45-46DC-A15B-59EBAC38E701__CEGIJDDJ)中的查询使用TO_NUMBER函数将POSTAL_CODE值（类型为VARCHAR2）转换为NUMBER类型的值，并将其用于计算。
+
+**也可以看看:**
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20034) 有关SQL转换函数的详细信息
+    
+*   "[About the NLS_DATE_FORMAT Parameter](working-in-global-environment.html#GUID-79B81BEE-38A2-4AC9-95AA-652F0A852C45 "This parameter specifies the default date format to use with the TO_CHAR and TO_DATE functions.")"
+    
+
+示例2-20 使用格式模板将日期转换为字符
+```
+SELECT LAST_NAME,
+HIRE_DATE,
+TO_CHAR(HIRE_DATE, 'FMMonth DD YYYY') "Date Started"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY LAST_NAME;
+```
+结果:
+```
+LAST_NAME                 HIRE_DATE Date Started
+------------------------- --------- -----------------
+Chen                      28-SEP-05 September 28 2005
+Faviet                    16-AUG-02 August 16 2002
+Greenberg                 17-AUG-02 August 17 2002
+Popp                      07-DEC-07 December 7 2007
+Sciarra                   30-SEP-05 September 30 2005
+Urman                     07-MAR-06 March 7 2006
+ 
+6 rows selected.
+```
+示例2-21 将字符转换为数字
+```
+SELECT CITY,
+POSTAL_CODE "Old Code",
+TO_NUMBER(POSTAL_CODE) + 1 "New Code"
+FROM LOCATIONS
+WHERE COUNTRY_ID = 'US'
+ORDER BY POSTAL_CODE;
+```
+结果:
+```
+CITY                           Old Code       New Code
+------------------------------ ------------ ----------
+Southlake                      26192             26193
+South Brunswick                50090             50091
+Seattle                        98199             98200
+South San Francisco            99236             99237
+ 
+4 rows selected.
+```
+#### 2.6.9.7 在查询中使用聚合函数
+
+聚合函数采用一组行并返回单个结果行。行组可以是整个表或视图。
+
+SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20035)中列出并描述了SQL支持的聚合函数。
+
+与GROUP BY子句一起使用时，聚合函数特别强大，该子句将查询结果按一个或多个列分组，每个组的结果。
+
+[示例2-22](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B8DF101D-1613-42F2-ABF5-AE67E00E3C2B__CEGGIDDF)中的查询使用COUNT函数和GROUP BY子句来显示向每个经理报告的人数。通配符*表示整个记录。
+
+[示例2-22](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B8DF101D-1613-42F2-ABF5-AE67E00E3C2B__CEGGIDDF)显示一名员工未向经理报告。以下查询选择该员工的名字，姓氏和职位：
+```
+COLUMN FIRST_NAME FORMAT A10;
+COLUMN LAST_NAME FORMAT A10;
+COLUMN JOB_TITLE FORMAT A10;
+```
+```
+SELECT e.FIRST_NAME,
+e.LAST_NAME,
+j.JOB_TITLE
+FROM EMPLOYEES e, JOBS j
+WHERE e.JOB_ID = j.JOB_ID
+AND MANAGER_ID IS NULL;
+```
+结果:
+```
+FIRST_NAME LAST_NAME  JOB_TITLE
+---------- ---------- ----------
+Steven     King       President
+```
+要使查询仅返回聚合值满足指定条件的行，请在查询的HAVING子句中使用聚合函数。
+
+[示例2-23](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B8DF101D-1613-42F2-ABF5-AE67E00E3C2B__CEGGAIJC)中的查询显示了每个部门每年花在工资上的金额，但仅适用于金额超过1,000,000美元的部门。
+
+[示例2-24](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B8DF101D-1613-42F2-ABF5-AE67E00E3C2B__CEGFJGCC)中的查询使用多个聚合函数来显示每个JOB_ID的工资统计信息。
+
+**也可以看看:**
+
+[Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20035) 有关SQL聚合函数的详细信息
+
+示例2-22 计算每个组中的行数
+```
+SELECT MANAGER_ID "Manager",
+COUNT(*) "Number of Reports"
+FROM EMPLOYEES
+GROUP BY MANAGER_ID
+ORDER BY MANAGER_ID;
+```
+结果:
+```
+   Manager Number of Reports
+---------- -----------------
+       100                14
+       101                 5
+       102                 1
+       103                 4
+       108                 5
+       114                 5
+       120                 8
+       121                 8
+       122                 8
+       123                 8
+       124                 8
+       145                 6
+       146                 6
+       147                 6
+       148                 6
+       149                 6
+       201                 1
+       205                 1
+                           1
+ 
+19 rows selected.
+```
+示例2-23 将聚合函数限制为满足条件的行
+```
+SELECT DEPARTMENT_ID "Department",
+SUM(SALARY*12) "All Salaries"
+FROM EMPLOYEES
+HAVING SUM(SALARY * 12) >= 1000000
+GROUP BY DEPARTMENT_ID;
+```
+结果:
+```
+Department All Salaries
+---------- ------------
+        50      1876800
+        80      3654000
+```
+示例2-24 使用统计信息的聚合函数
+```
+SELECT JOB_ID,
+COUNT(*) "#",
+MIN(SALARY) "Minimum",
+ROUND(AVG(SALARY), 0) "Average",
+MEDIAN(SALARY) "Median",
+MAX(SALARY) "Maximum",
+ROUND(STDDEV(SALARY)) "Std Dev"
+FROM EMPLOYEES
+GROUP BY JOB_ID
+ORDER BY JOB_ID;
+```
+结果:
+```
+JOB_ID              #    Minimum    Average     Median    Maximum    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+AC_ACCOUNT          1       8300       8300       8300       8300          0
+AC_MGR              1      12008      12008      12008      12008          0
+AD_ASST             1       4400       4400       4400       4400          0
+AD_PRES             1      24000      24000      24000      24000          0
+AD_VP               2      17000      17000      17000      17000          0
+FI_ACCOUNT          5       6900       7920       7800       9000        766
+FI_MGR              1      12008      12008      12008      12008          0
+HR_REP              1       6500       6500       6500       6500          0
+IT_PROG             5       4200       5760       4800       9000       1926
+MK_MAN              1      13000      13000      13000      13000          0
+MK_REP              1       6000       6000       6000       6000          0
+PR_REP              1      10000      10000      10000      10000          0
+PU_CLERK            5       2500       2780       2800       3100        239
+PU_MAN              1      11000      11000      11000      11000          0
+SA_MAN              5      10500      12200      12000      14000       1525
+SA_REP             30       6100       8350       8200      11500       1524
+SH_CLERK           20       2500       3215       3100       4200        548
+ST_CLERK           20       2100       2785       2700       3600        453
+ST_MAN              5       5800       7280       7900       8200       1066
+ 
+19 rows selected.
+```
+#### 2.6.9.8 在查询中使用NULL相关函数
+
+与NULL相关的函数有助于处理NULL值。
+
+的NULL该SQL支持-相关功能中列出并描述[Oracle数据库的SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF30049)。
+
+[示例2-25中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-703425FD-82B2-400F-AA87-C48604CE89FF__CEGDHHHG)的查询返回姓氏以“B”开头的员工的姓氏和佣金。如果员工没有收到任何佣金（即，如果COMMISSION_PCT为NULL），则NVL函数将“不适用”替换为NULL。
+
+[示例2-26中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-703425FD-82B2-400F-AA87-C48604CE89FF__CEGCECIA)的查询使用NVL2函数返回姓氏以“B”开头的员工的姓氏，工资和收入：如果COMMISSION_PCT不为NULL，则收入为工资加佣金; 如果COMMISSION_PCT为NULL，则收入仅为工资。
+
+**也可以看看:**
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00684) 有关 NVL功能的更多信息
+    
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00685) 有关 NVL2功能的更多信息
+    
+
+示例2-25 将字符串替换为NULL值
+```
+SELECT LAST_NAME,
+NVL(TO_CHAR(COMMISSION_PCT), 'Not Applicable') "COMMISSION"
+FROM EMPLOYEES
+WHERE LAST_NAME LIKE 'B%'
+ORDER BY LAST_NAME; 
+```
+结果:
+```
+LAST_NAME                 COMMISSION
+------------------------- ----------------------------------------
+Baer                      Not Applicable
+Baida                     Not Applicable
+Banda                     .1
+Bates                     .15
+Bell                      Not Applicable
+Bernstein                 .25
+Bissot                    Not Applicable
+Bloom                     .2
+Bull                      Not Applicable
+ 
+9 rows selected.
+```
+示例2-26 为NULL和非NULL值指定不同的表达式
+```
+SELECT LAST_NAME, SALARY,
+NVL2(COMMISSION_PCT, SALARY + (SALARY * COMMISSION_PCT), SALARY) INCOME
+FROM EMPLOYEES WHERE LAST_NAME LIKE 'B%'
+ORDER BY LAST_NAME;
+```
+结果:
+```
+LAST_NAME                     SALARY     INCOME
+------------------------- ---------- ----------
+Baer                           10000      10000
+Baida                           2900       2900
+Banda                           6200       6820
+Bates                           7300       8395
+Bell                            4000       4000
+Bernstein                       9500      11875
+Bissot                          3300       3300
+Bloom                          10000      12000
+Bull                            4100       4100
+ 
+9 rows selected.
+```
+#### 2.6.9.9 在查询中使用CASE表达式
+
+A CASE expression lets you use IF ... THEN ... ELSE logic in SQL statements without invoking subprograms. There are two kinds of CASE expressions, simple and searched.
+
+[示例2-27中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F__CEGEFFIE)的查询使用简单的CASE表达式来显示每个国家/地区代码的国家/地区名称。
+
+[示例2-28中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F__CEGEBIAF)的查询使用搜索的CASE表达式，根据与服务长度关联的日期范围显示建议的工资增长（15％，10％，5％或0％）。
+
+**也可以看看:**
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20037) 有关 CASE表达式的更多信息
+    
+*   [Oracle Database PL/SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=LNPLS278) 有关 CASE表达式的更多信息
+    
+*   "[Using the DECODE Function in Queries](connecting-exploring-database.html#GUID-5DFAEBA9-C1E7-4AC5-942C-0DEC6C2A1EB1 "The DECODE function compares an expression to several search values. Whenever the value of the expression matches a search value, DECODE returns the result associated with that search value. If DECODE finds no match, then it returns the default value (if specified) or NULL (if no default value is specified).")"
+    
+*   "[Using the CASE Statement](stored-subprograms-packages.html#GUID-985AF0C3-948B-4EE7-95D6-B814A35CD8F2 "The CASE statement chooses from a sequence of conditions, and executes the corresponding statement.")"
+    
+
+示例2-27 在查询中使用简单CASE表达式
+```
+SELECT UNIQUE COUNTRY_ID ID,
+       CASE COUNTRY_ID
+         WHEN 'AU' THEN 'Australia'
+         WHEN 'BR' THEN 'Brazil'
+         WHEN 'CA' THEN 'Canada'
+         WHEN 'CH' THEN 'Switzerland'
+         WHEN 'CN' THEN 'China'
+         WHEN 'DE' THEN 'Germany'
+         WHEN 'IN' THEN 'India'
+         WHEN 'IT' THEN 'Italy'
+         WHEN 'JP' THEN 'Japan'
+         WHEN 'MX' THEN 'Mexico'
+         WHEN 'NL' THEN 'Netherlands'
+         WHEN 'SG' THEN 'Singapore'
+         WHEN 'UK' THEN 'United Kingdom'
+         WHEN 'US' THEN 'United States'
+       ELSE 'Unknown'
+       END COUNTRY
+FROM LOCATIONS
+ORDER BY COUNTRY_ID;
+```
+结果:
+```
+ID COUNTRY
+-- --------------
+AU Australia
+BR Brazil
+CA Canada
+CH Switzerland
+CN China
+DE Germany
+IN India
+IT Italy
+JP Japan
+MX Mexico
+NL Netherlands
+SG Singapore
+UK United Kingdom
+US United States
+ 
+14 rows selected.
+```
+示例2-28 在查询中使用搜索的CASE表达式
+```
+SELECT LAST_NAME "Name",
+HIRE_DATE "Started",
+SALARY "Salary",
+CASE
+  WHEN HIRE_DATE < TO_DATE('01-Jan-03', 'dd-mon-yy')
+    THEN TRUNC(SALARY*1.15, 0)
+  WHEN HIRE_DATE >= TO_DATE('01-Jan-03', 'dd-mon-yy') AND
+       HIRE_DATE < TO_DATE('01-Jan-06', 'dd-mon-yy')
+    THEN TRUNC(SALARY*1.10, 0)
+  WHEN HIRE_DATE >= TO_DATE('01-Jan-06', 'dd-mon-yy') AND
+       HIRE_DATE < TO_DATE('01-Jan-07', 'dd-mon-yy')
+    THEN TRUNC(SALARY*1.05, 0)
+  ELSE SALARY
+END "Proposed Salary"
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 100
+ORDER BY HIRE_DATE;
+```
+结果:
+```
+Name                      Started       Salary Proposed Salary
+------------------------- --------- ---------- ---------------
+Faviet                    16-AUG-02       9000           10350
+Greenberg                 17-AUG-02      12008           13809
+Chen                      28-SEP-05       8200            9020
+Sciarra                   30-SEP-05       7700            8470
+Urman                     07-MAR-06       7800            8190
+Popp                      07-DEC-07       6900            6900
+
+6 rows selected.
+```
+#### 2.6.9.10 在查询中使用DECODE函数
+
+该DECODE函数的表达式进行比较，以几个搜索值。只要表达式的值与搜索值匹配，DECODE就会返回与该搜索值关联的结果。如果DECODE找不到匹配项，则返回默认值（如果指定）或NULL（如果未指定默认值）。
+
+[示例2-29中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-5DFAEBA9-C1E7-4AC5-942C-0DEC6C2A1EB1__CEGCACGA)的查询使用DECODE函数显示三个不同作业的建议工资增长。表达式为JOB_ID; 搜索值为“PU\_CLERK”，“SH\_CLERK”和“ST_CLERK”; 默认为SALARY。
+
+注意：
+
+DECODE函数的参数可以是任何SQL数字或字符类型。在比较之前，Oracle会自动将表达式和每个搜索值转换为第一个搜索值的数据类型。Oracle会自动将返回值转换为与第一个结果相同的数据类型。如果第一个结果具有数据类型CHAR或第一个结果为NULL，则Oracle将返回值转换为数据类型VARCHAR2。
+
+**也可以看看:**
+
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00631) 有关 DECODE函数的信息
+    
+*   "[Using CASE Expressions in Queries](connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F "A CASE expression lets you use IF ... THEN ... ELSE logic in SQL statements without invoking subprograms. There are two kinds of CASE expressions, simple and searched.")"
+    
+
+示例2-29 在查询中使用DECODE函数
+```
+SELECT LAST_NAME, JOB_ID, SALARY,
+DECODE(JOB_ID,
+ 'PU_CLERK', SALARY * 1.10,
+ 'SH_CLERK', SALARY * 1.15,
+ 'ST_CLERK', SALARY * 1.20,
+ SALARY) "Proposed Salary"
+FROM EMPLOYEES
+WHERE JOB_ID LIKE '%_CLERK'
+AND LAST_NAME < 'E'
+ORDER BY LAST_NAME;
+```
+结果:
+```
+LAST_NAME                 JOB_ID         SALARY Proposed Salary
+------------------------- ---------- ---------- ---------------
+Atkinson                  ST_CLERK         2800            3360
+Baida                     PU_CLERK         2900            3190
+Bell                      SH_CLERK         4000            4600
+Bissot                    ST_CLERK         3300            3960
+Bull                      SH_CLERK         4100            4715
+Cabrio                    SH_CLERK         3000            3450
+Chung                     SH_CLERK         3800            4370
+Colmenares                PU_CLERK         2500            2750
+Davies                    ST_CLERK         3100            3720
+Dellinger                 SH_CLERK         3400            3910
+Dilly                     SH_CLERK         3600            4140
+ 
+11 rows selected.
+```
