@@ -614,13 +614,13 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
 
 也可以看看：
 
-*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF007&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgcBicJ35WfApAfwp9FOQk6tvGBgw) 有关查询和子查询的更多信息，请[参见Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF007&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgcBicJ35WfApAfwp9FOQk6tvGBgw)
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF007) 有关查询和子查询的更多信息
     
-*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF01702&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgxN_xrhZ30vJq65SgqMmPuoxAvNA) 有关SELECT语句的更多信息，请[参见Oracle数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF01702&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhgxN_xrhZ30vJq65SgqMmPuoxAvNA)
+*   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF01702) 有关SELECT语句的更多信息
     
-*   [SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQPUG008&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhK-R9wpjFvfXgwCqx7elzSBRPZtg)  [SQL * Plus用户指南和参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQPUG008&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhK-R9wpjFvfXgwCqx7elzSBRPZtg)有关SQL * Plus命令行界面的更多信息
+*   [SQL*Plus User's Guide and Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQPUG008) 有关SQL * Plus命令行界面的更多信息
     
-*   [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) ，了解有关在SQL Developer中使用Worksheet的信息
+*   [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10700) 了解有关在SQL Developer中使用Worksheet的信息
     
 
 ### 2.6.2 在SQL Developer中运行查询
@@ -662,7 +662,7 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
     
 也可以看看：
 
- [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) ，了解有关在SQL Developer中使用Worksheet的信息
+ [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=RPTUG10700) ，了解有关在SQL Developer中使用Worksheet的信息
 
 ### 2.6.3 教程：选择表的所有列
 
@@ -731,7 +731,7 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
 
 在显示的查询结果中，默认列标题是列名称。 要在新标题下显示列，请在列名称后面指定新标题（ **别名** ）。 别名在查询期间重命名列，但不会在数据库中更改其名称。
 
- [示例2-5](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-68201783-B6A2-4860-B0D0-25D8ADCDA487__CEGJADAB)中的查询选择与“ [教程：选择表的特定列](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-62692CDF-8E8B-4B91-A577-CE3D484A718E "This tutorial shows how to select only the columns FIRST_NAME, LAST_NAME, and DEPARTMENT_ID of the EMPLOYEES table.") ”中的查询相同的列，但它也为它们指定了别名。 由于别名未用双引号括起来，因此它们以大写字母显示。
+ [示例2-5](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-68201783-B6A2-4860-B0D0-25D8ADCDA487__CEGJADAB)中的查询选择与“ [教程：选择表的特定列](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-62692CDF-8E8B-4B91-A577-CE3D484A718E "本教程介绍如何仅选择EMPLOYEES表的FIRST_NAME，LAST_NAME和DEPARTMENT_ID列。") ”中的查询相同的列，但它也为它们指定了别名。 由于别名未用双引号括起来，因此它们以大写字母显示。
 
 如果将列别名括在双引号中，则保留大小写，并且别名可以包含空格，如[示例2-6](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-68201783-B6A2-4860-B0D0-25D8ADCDA487__CEGBBEGD)所示。
 
@@ -1094,7 +1094,7 @@ Kochhar                         17000     204000
 
 数字函数接受数字输入并返回数值。每个数字函数为每个计算的行返回一个值。
 
-SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DSQLRF20031&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhPpkZcFI5u268MjCuvUduBy5jV7g)中列出并描述了SQL支持的数字函数。
+SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=DSQLRF20031)中列出并描述了SQL支持的数字函数。
 
 [示例2-14](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3DED1F6D-719B-41AB-9682-C43E95410E13__CEGIACAA)中的查询使用数字函数`ROUND`显示部门100中每个员工的每日工资，四舍五入到最接近的分数。
 
@@ -1301,7 +1301,7 @@ SQL [数据库SQL语言参考](https://www.oracle.com/pls/topic/lookup?ctx=en/da
 
 *   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF20034) 有关SQL转换函数的详细信息
     
-*   "[About the NLS_DATE_FORMAT Parameter](working-in-global-environment.html#GUID-79B81BEE-38A2-4AC9-95AA-652F0A852C45 "This parameter specifies the default date format to use with the TO_CHAR and TO_DATE functions.")"
+*   "[About the NLS_DATE_FORMAT Parameter](working-in-global-environment.html#GUID-79B81BEE-38A2-4AC9-95AA-652F0A852C45 "此参数指定与TO_CHAR和TO_DATE函数一起使用的默认日期格式。")"
     
 
 示例2-20 使用格式模板将日期转换为字符
@@ -1540,7 +1540,7 @@ Bull                            4100       4100
 ```
 #### 2.6.9.9 在查询中使用CASE表达式
 
-A CASE expression lets you use IF ... THEN ... ELSE logic in SQL statements without invoking subprograms. There are two kinds of CASE expressions, simple and searched.
+CASE表达式允许您在SQL语句中使用IF ... THEN ... ELSE逻辑而无需调用子程序。 有两种CASE表达式，简单和搜索。
 
 [示例2-27中](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F__CEGEFFIE)的查询使用简单的CASE表达式来显示每个国家/地区代码的国家/地区名称。
 
@@ -1552,9 +1552,9 @@ A CASE expression lets you use IF ... THEN ... ELSE logic in SQL statements with
     
 *   [Oracle Database PL/SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=LNPLS278) 有关 CASE表达式的更多信息
     
-*   "[Using the DECODE Function in Queries](connecting-exploring-database.html#GUID-5DFAEBA9-C1E7-4AC5-942C-0DEC6C2A1EB1 "The DECODE function compares an expression to several search values. Whenever the value of the expression matches a search value, DECODE returns the result associated with that search value. If DECODE finds no match, then it returns the default value (if specified) or NULL (if no default value is specified).")"
+*   "[Using the DECODE Function in Queries](connecting-exploring-database.html#GUID-5DFAEBA9-C1E7-4AC5-942C-0DEC6C2A1EB1 "DECODE函数将表达式与多个搜索值进行比较。 只要表达式的值与搜索值匹配，DECODE就会返回与该搜索值关联的结果。 如果DECODE找不到匹配项，则返回默认值（如果指定）或NULL（如果未指定默认值）。")"
     
-*   "[Using the CASE Statement](stored-subprograms-packages.html#GUID-985AF0C3-948B-4EE7-95D6-B814A35CD8F2 "The CASE statement chooses from a sequence of conditions, and executes the corresponding statement.")"
+*   "[Using the CASE Statement](stored-subprograms-packages.html#GUID-985AF0C3-948B-4EE7-95D6-B814A35CD8F2 "CASE语句从一系列条件中选择，并执行相应的语句。")"
     
 
 示例2-27 在查询中使用简单CASE表达式
@@ -1648,7 +1648,7 @@ DECODE函数的参数可以是任何SQL数字或字符类型。在比较之前�
 
 *   [Oracle Database SQL Language Reference](https://www.oracle.com/pls/topic/lookup?ctx=en/database/oracle/oracle-database/18/tdddg&id=SQLRF00631) 有关 DECODE函数的信息
     
-*   "[Using CASE Expressions in Queries](connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F "A CASE expression lets you use IF ... THEN ... ELSE logic in SQL statements without invoking subprograms. There are two kinds of CASE expressions, simple and searched.")"
+*   "[Using CASE Expressions in Queries](connecting-exploring-database.html#GUID-B7BACC62-95F0-42D9-BA26-882FE5268A0F "CASE表达式允许您在SQL语句中使用IF ... THEN ... ELSE逻辑而无需调用子程序。 有两种CASE表达式，简单和搜索。")"
     
 
 示例2-29 在查询中使用DECODE函数
