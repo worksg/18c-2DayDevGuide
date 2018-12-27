@@ -592,7 +592,7 @@ hr_conn信息展开：加号变为减号（ - ），在hr_conn图标下，将显
 *   [在查询中使用运算符和函数](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-3E045FD9-CEA9-4BF5-B4F5-33085E1BC085)  
     查询的select_list可以包括SQL表达式，它可以包括SQL运算符和SQL函数。 这些运算符和函数可以将表数据作为操作数和参数。将评估SQL表达式，并将其值显示在查询结果中。
 
-### 2.6.1关于查询
+### 2.6.1 关于查询
 
 **查询**或SQL SELECT语句从一个或多个表或视图中选择数据。
 
@@ -623,7 +623,7 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
 *   [Oracle SQL Developer User's Guide](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) ，了解有关在SQL Developer中使用Worksheet的信息
     
 
-### 2.6.2在SQL Developer中运行查询
+### 2.6.2 在SQL Developer中运行查询
 
 本节介绍如何使用Worksheet在SQL Developer中运行查询。
 
@@ -664,7 +664,7 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
 
  [Oracle SQL Developer用户指南](https://www.oracle.com/pls/topic/lookup%3Fctx%3Den/database/oracle/oracle-database/18/tdddg%26id%3DRPTUG10700&xid=17259,15700019,15700124,15700186,15700190,15700201,15700237,15700242,15700248&usg=ALkJrhhZbiR9jEX68pK72pc4qmG7vq1UCg) ，了解有关在SQL Developer中使用Worksheet的信息
 
-### 2.6.3教程：选择表的所有列
+### 2.6.3 教程：选择表的所有列
 
 本教程介绍如何选择EMPLOYEES表的所有列。
 
@@ -688,7 +688,7 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
 
 “ [教程：使用SQL Developer查看EMPLOYEES表属性和数据](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/connecting-exploring-database.html#GUID-D1FFB912-EDC5-4DE0-BABC-902207A2F04C "本教程介绍如何使用SQL Developer查看HR模式中EMPLOYEES表的属性和数据。") ” ，了解有关使用SQL Developer查看表数据的另一种方法的信息
 
-### 2.6.4 Tutorial: Selecting Specific Columns of a Table
+### 2.6.4 教程：选择表的特定列
 
 本教程介绍如何仅选择EMPLOYEES表的FIRST\_NAME，LAST\_NAME和DEPARTMENT_ID列。
 
@@ -727,7 +727,7 @@ select_list指定从中选择数据的列，source_list指定具有这些列的�
     107 rows selected.
     ```
 
-###  2.6.5在新标题下显示所选列
+### 2.6.5 在新标题下显示所选列
 
 在显示的查询结果中，默认列标题是列名称。 要在新标题下显示列，请在列名称后面指定新标题（ **别名** ）。 别名在查询期间重命名列，但不会在数据库中更改其名称。
 
