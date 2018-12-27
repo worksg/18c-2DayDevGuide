@@ -350,7 +350,7 @@ SQL函数行为依赖NLS参数值的SQL函数称为**语言环境相关**。 一
 [About the NLS_DUAL_CURRENCY Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-0C31F9C0-7FA7-4010-B916-0093691B3649)  
 此参数指定双币种符号（引入以支持欧元过渡期间的欧元货币符号）。
 
-[]](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-5CE0611F-F2F9-4A29-8CA6-6CF49B89F096)  
+[About the NLS_SORT Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-5CE0611F-F2F9-4A29-8CA6-6CF49B89F096)  
 此参数指定具有**ORDER BY**子句的查询的语言排序顺序（整理顺序）。
 
 [About the NLS_COMP Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-5476FAD6-81BD-477F-BB7A-91146674261E)  
@@ -448,7 +448,7 @@ Popp                      07-DIC-99
 3 rows selected.
 ```
 
-5. Change the value of NLS_LANGUAGE to GERMAN:
+5. 将**NLS_LANGUAGE**的值更改为GERMAN：
 ```
 ALTER SESSION SET NLS_LANGUAGE=GERMAN;
 ```
@@ -507,7 +507,7 @@ Popp                      07-DEZ-99
 
 **设置默认值**:
 
-- **NLS_DATE_FORMAT**, ，描述于 "[About the NLS_DATE_FORMAT Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-79B81BEE-38A2-4AC9-95AA-652F0A852C45)".
+- **NLS_DATE_FORMAT**, 描述于 "[About the NLS_DATE_FORMAT Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-79B81BEE-38A2-4AC9-95AA-652F0A852C45)".
 
 - **NLS_TIMESTAMP_FORMAT** 和 **NLS_TIMESTAMP_TZ_FORMAT**, 描述于 "[About NLS_TIMESTAMP_FORMAT and NLS_TIMESTAMP_TZ_FORMAT Parameters](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-1D9AD0B5-CC59-45E3-BFC5-56A26F59740D)".
 
