@@ -404,7 +404,7 @@ SQL函数行为依赖NLS参数值的SQL函数称为**语言环境相关**。 一
 
 - **NLS_DATE_LANGUAGE**, 描述于 "[About the NLS_DATE_LANGUAGE Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-49D71D37-9D14-461A-A900-37C4A2DDFA58)".
 
-- **NLS_SORT**, 描述于 "[]](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-5CE0611F-F2F9-4A29-8CA6-6CF49B89F096)".
+- **NLS_SORT**, 描述于 "[About the NLS_SORT Parameter](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-5CE0611F-F2F9-4A29-8CA6-6CF49B89F096)".
 
 Example 7-1 显示如何设置**NLS_LANGUAGE**到意大利语和德语并影响服务器消息和月份缩写。
 
