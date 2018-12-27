@@ -1303,12 +1303,10 @@ CREATE TABLE SEMANTICS_CHAR(SOME_DATA VARCHAR2(20));
 - "[Changing NLS Parameter Values](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-A7206047-9B84-4448-9828-8F0FA9725793)"
 
 ## 7.6 在全球化应用程序中使用Unicode
-您可以插入和检索Unicode数据。 数据在数据库和客户端程序之间透明转换，确保客户端程序独立于数据库字符集和国家字符集。
-
+您可以插入和检索Unicode数据。 数据在数据库和客户端程序之间透明转换，确保客户端程序独立于数据库字符集和国家字符集。  
 [Representing Unicode String Literals in SQL and PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-D472628F-DC15-4E12-9475-84C2EAEEF593)
 
-在SQL或PL / SQL中有三种表示Unicode字符串文字的方法。
-
+在SQL或PL / SQL中有三种表示Unicode字符串文字的方法。  
 [Avoiding Data Loss During Character-Set Conversion](https://docs.oracle.com/en/database/oracle/oracle-database/18/tdddg/working-in-global-environment.html#GUID-AB7D2EBA-2380-4046-B514-831308A2AECF)
 
 作为SQL或PL / SQL语句的一部分，文字（带或不带前缀**N**）编码在与语句其余部分相同的字符集中。 在客户端，语句在客户端字符集中编码，该字符集由**NLS_LANG**参数确定。 在服务器端，语句以数据库字符集编码。
@@ -1343,6 +1341,7 @@ SQL函数**NCHR**返回二进制等效项是国家字符集中的数字的字符
 SQL函数**UNISTR**将字符串转换为国家字符集。
 
 对于可移植性和数据保留，Oracle建议字符串仅包含ASCII字符和Unicode编码值。 Unicode编码值的格式为\xxxx，其中xxxx是UCS-2编码格式的字符代码值的十六进制值。
+
 **示例**：UNISTR（'G \ 0061ry'）代表'Gary'
 
 ASCII字符将转换为数据库字符集，然后转换为国家字符集。 Unicode编码值直接转换为国家字符集。
